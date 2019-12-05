@@ -122,69 +122,86 @@ if(window.addEventListener) {
   
       // This is called when you start holding down the mouse button.
       // This starts the pencil drawing.
-      this.mousedown = function (ev) {
+      // this.mousedown = function (ev) {
+      //   console.log("mousedown")
+      //     context.beginPath();
+      //     context.moveTo(ev._x, ev._y);
+      //     tool.started = true;
+      // };
+
+      this.pointerdown = function (ev) {
+        if(event.pressure > 0){
+          console.log("pointerdown", event.pressure)
           context.beginPath();
           context.moveTo(ev._x, ev._y);
           tool.started = true;
-      };
+        } else {
+          this.pointerup
+        }
 
-      this.pointerdown = function (ev) {
-        context.beginPath();
-        context.moveTo(ev._x, ev._y);
-        tool.started = true;
     };
 
-      this.touchstart = function (ev) {
-        context.beginPath();
-        context.moveTo(ev._x, ev._y);
-        tool.started = true;
-    };
+    //   this.touchstart = function (ev) {
+    //     console.log("touchstart")
+    //     context.beginPath();
+    //     context.moveTo(ev._x, ev._y);
+    //     tool.started = true;
+    // };
   
       // This function is called every time you move the mouse. Obviously, it only 
       // draws if the tool.started state is set to true (when you are holding down 
       // the mouse button).
-      this.mousemove = function (ev) {
-        if (tool.started) {
-          context.lineTo(ev._x, ev._y);
-          context.stroke();
-        }
-      };
+      // this.mousemove = function (ev) {
+      //   if (tool.started) {
+      //     console.log("mousemove")
+      //     context.lineTo(ev._x, ev._y);
+      //     context.stroke();
+      //   }
+      // };
 
       this.pointermove = function (ev) {
-        if (tool.started) {
+        if (tool.started && event.pressure > 0) {
+          console.log("pointermove")
           context.lineTo(ev._x, ev._y);
           context.stroke();
+        } else{
+          this.pointerup
         }
       };
 
-      this.touchmove = function (ev) {
-        if (tool.started) {
-          context.lineTo(ev._x, ev._y);
-          context.stroke();
-        }
-      };
+      // this.touchmove = function (ev) {       
+      //   if (tool.started) {
+      //     console.log("touchmove")
+      //     context.lineTo(ev._x, ev._y);
+      //     context.stroke();
+      //   }
+      // };
   
       // This is called when you release the mouse button.
-      this.mouseup = function (ev) {
-        if (tool.started) {
-          tool.mousemove(ev);
-          tool.started = false;
-        }
-      };
+      // this.mouseup = function (ev) {
+      //   console.log("mouseup")
+      //   if (tool.started) {
+      //     tool.mousemove(ev);
+      //     tool.started = false;
+      //   }
+      // };
 
       this.pointerup = function (ev) {
-        if (tool.started) {
-          tool.mousemove(ev);
+        // if (tool.started) {
+          console.log("pointerup")
           tool.started = false;
-        }
+          tool.pointermove(ev);
+
+        // }
       };
 
-      this.touchend = function (ev) {
-        if (tool.started) {
-          tool.mousemove(ev);
-          tool.started = false;
-        }
-      };
+      // this.touchend = function (ev) {
+      //   console.log("touchend")
+      //   if (tool.started) {
+      //     tool.mousemove(ev);
+      //     tool.started = false;
+      //   }
+      // };
     }
   
     // The general-purpose event handler. This function just determines the mouse 
