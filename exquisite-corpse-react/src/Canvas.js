@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Immutable from 'immutable';
 import Drawing from "./Drawing";
+import './Canvas.css'
 
 
 class Canvas extends Component {
@@ -50,7 +51,7 @@ class Canvas extends Component {
 
 render() {
   return (
-    <div ref="drawArea" 
+    <div ref="drawArea" className="drawAre"     
       onMouseDown={this.handleMouseDown.bind(this)}
       onMouseMove={this.handleMouseMove}
       >
@@ -61,34 +62,5 @@ render() {
 }
 }
 
-  // componentDidMount() {
-  //   const canvas = this.refs.canvas
-  //   const ctx = canvas.getContext("2d")
-  //   const img = this.refs.image
-
-  //   img.onload = () => {
-  //     ctx.drawImage(img, 0, 0)
-  //     ctx.font = "40px Courier"
-  //     ctx.fillText(this.props.text, 210, 75)
-  //   }
-  // }
-//   componentDidMount() {
-//     this.updateCanvas();
-// }
-// updateCanvas() {
-//     const ctx = this.refs.canvas.getContext('2d');
-//     ctx.fillRect(0,0, 400, 400);
-// }
-
-//   render() {
-//     return (
-//       <div>
-//         ok
-//         <canvas ref="canvas" width={640} height={850} id="canvas" ></canvas>
-//         <img ref="image" source="cheese" className="hidden"></img>
-//       </div>
-//     )
-//   }
-// }
 
 export default Canvas;

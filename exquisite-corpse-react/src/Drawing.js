@@ -1,5 +1,5 @@
 import React from 'react';
-
+import DrawingLine from "./DrawingLine";
 
 function Drawing({ lines }) {
   return (
@@ -10,3 +10,6 @@ function Drawing({ lines }) {
     </svg>
   );
 }
+
+export default Drawing;
+

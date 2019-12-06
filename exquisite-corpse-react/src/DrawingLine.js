@@ -9,3 +9,5 @@ function DrawingLine({ line }) {
 
   return <path d={pathData} />;
 }
+
+export default DrawingLine;
