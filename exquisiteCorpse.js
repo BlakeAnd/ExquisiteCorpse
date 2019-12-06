@@ -10,7 +10,8 @@
 // // }
 // // context = canvas.getContext("2d");
 
-// $('#canvas').mousedown(function(e){
+// $('#canvas').on('pointerdown', e => {
+//   console.log("down")
 //   var mouseX = e.pageX - this.offsetLeft;
 //   var mouseY = e.pageY - this.offsetTop;
 		
@@ -19,18 +20,22 @@
 //   redraw();
 // });
 
-// $('#canvas').mousemove(function(e){
+// $('#canvas').on("pointermove", e => {
 //   if(paint){
+//     console.log("movewhiledown", event.pressure)
 //     addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-//     redraw();
-//   }
+//     redraw();}
+//   // } else{
+//   //   console.log("nodown")
+//   //   pointerup();
+//   // }
 // });
 
-// $('#canvas').mouseup(function(e){
+// pointerup = () => {
 //   paint = false;
-// });
+// };
 
-// $('#canvas').mouseleave(function(e){
+// $('#canvas').on("pointerleave", (e) => {
 //   paint = false;
 // }); 
 
@@ -65,6 +70,10 @@
 //      context.stroke();
 //   }
 // }
+
+
+
+
 
 
 
@@ -118,8 +127,10 @@ if(window.addEventListener) {
       var tool = this;
       this.started = false;
 
+    context.strokeStyle = "#df4b26";
+    context.lineJoin = "round";
+    context.lineWidth = 5;
 
-  
       // This is called when you start holding down the mouse button.
       // This starts the pencil drawing.
       // this.mousedown = function (ev) {
@@ -130,14 +141,14 @@ if(window.addEventListener) {
       // };
 
       this.pointerdown = function (ev) {
-        if(event.pressure > 0){
-          console.log("pointerdown", event.pressure)
+        // if(event.pressure > 0){
           context.beginPath();
-          context.moveTo(ev._x, ev._y);
+          context.moveTo(ev._x-10, (ev._y - 53));
+          console.log("pointerdown", ev._y - 40)
           tool.started = true;
-        } else {
-          this.pointerup
-        }
+        // } else {
+        //   this.pointerup
+        // }
 
     };
 
@@ -160,13 +171,13 @@ if(window.addEventListener) {
       // };
 
       this.pointermove = function (ev) {
-        if (tool.started && event.pressure > 0) {
-          console.log("pointermove")
-          context.lineTo(ev._x, ev._y);
+        if (tool.started) {
+          // console.log("pointermove")
+          context.lineTo(ev._x-10, ev._y - 53);
           context.stroke();
-        } else{
-          this.pointerup
-        }
+        } 
+        // else{  this.pointerup
+        // }
       };
 
       // this.touchmove = function (ev) {       
@@ -187,12 +198,11 @@ if(window.addEventListener) {
       // };
 
       this.pointerup = function (ev) {
-        // if (tool.started) {
+        if (tool.started) {
           console.log("pointerup")
-          tool.started = false;
           tool.pointermove(ev);
-
-        // }
+          tool.started = false;
+        }
       };
 
       // this.touchend = function (ev) {
