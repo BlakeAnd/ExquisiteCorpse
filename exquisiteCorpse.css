@@ -1,18 +1,28 @@
+/* #canvas-wrap{
+  display: flex;
+  flex-direction: column;
+} */
 #canvas{
   border: 2px solid red;
   border-radius: 6px;
   z-index: -1;
-  position: absolute;
+  /* position: absolute; */
+}
+#canvasb{
+  border: 2px solid blue;
+  border-radius: 6px;
+  z-index: -1;
+  /* position: absolute; */
 }
 
 .cover{
   background: black;
-  width: 420px;
+  width: 220px;
   height: 300px;
-  margin: 200px;
+  margin: 2px;
   z-index: 9999;
 }
-#top-cover{
-  margin-top: 0px;
-  z-index: 9999;
+#top{
+  margin-top: -200px;
+  /* z-index: 9999; */
 }
