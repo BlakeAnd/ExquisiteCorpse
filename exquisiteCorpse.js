@@ -140,10 +140,12 @@
 
         this.pointerdown = function (ev) {
           // if(event.pressure > 0){
+          if(lower_num <= ev._y && ev._y <= higher_num){
             context.beginPath();
             context.moveTo(ev._x, (ev._y ));
             console.log("pointerdown", ev._y)
             tool.started = true;
+          }
           // } else {
           //   this.pointerup
           // }
