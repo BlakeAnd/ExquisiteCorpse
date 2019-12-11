@@ -1,90 +1,14 @@
-  // context = document.getElementById('canvas').getContext("2d");
-  // // var canvasDiv = document.getElementById('canvasDiv');
-  // // canvas = document.createElement('canvas');
-  // // canvas.setAttribute('width', canvasWidth);
-  // // canvas.setAttribute('height', canvasHeight);
-  // // canvas.setAttribute('id', 'canvas');
-  // // canvasDiv.appendChild(canvas);
-  // // if(typeof G_vmlCanvasManager != 'undefined') {
-  // // 	canvas = G_vmlCanvasManager.initElement(canvas);
-  // // }
-  // // context = canvas.getContext("2d");
-
-  // $('#canvas').on('pointerdown', e => {
-  //   console.log("down")
-  //   var mouseX = e.pageX - this.offsetLeft;
-  //   var mouseY = e.pageY - this.offsetTop;
-      
-  //   paint = true;
-  //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-  //   redraw();
-  // });
-
-  // $('#canvas').on("pointermove", e => {
-  //   if(paint){
-  //     console.log("movewhiledown", event.pressure)
-  //     addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-  //     redraw();}
-  //   // } else{
-  //   //   console.log("nodown")
-  //   //   pointerup();
-  //   // }
-  // });
-
-  // pointerup = () => {
-  //   paint = false;
-  // };
-
-  // $('#canvas').on("pointerleave", (e) => {
-  //   paint = false;
-  // }); 
-
-  // var clickX = new Array();
-  // var clickY = new Array();
-  // var clickDrag = new Array();
-  // var paint;
-
-  // function addClick(x, y, dragging)
-  // {
-  //   clickX.push(x);
-  //   clickY.push(y);
-  //   clickDrag.push(dragging);
-  // }
-
-  // function redraw(){
-  //   context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-    
-  //   context.strokeStyle = "#df4b26";
-  //   context.lineJoin = "round";
-  //   context.lineWidth = 5;
-        
-  //   for(var i=0; i < clickX.length; i++) {		
-  //     context.beginPath();
-  //     if(clickDrag[i] && i){
-  //       context.moveTo(clickX[i-1], clickY[i-1]);
-  //      }else{
-  //        context.moveTo(clickX[i]-1, clickY[i]);
-  //      }
-  //      context.lineTo(clickX[i], clickY[i]);
-  //      context.closePath();
-  //      context.stroke();
-  //   }
-  // }
-
-
-
-
 
   let lower_num = 0;
-  let higher_num = 150;    
+  let higher_num = 300;    
   function tops() {
     lower_num = 0;
-    higher_num = 150;   
+    higher_num = 300;   
   }
 
   function bots() {
-    lower_num = 150;
-    higher_num = 300; 
+    lower_num = 300;
+    higher_num = 600; 
   }
 
 
@@ -143,7 +67,6 @@
           if(lower_num <= ev._y && ev._y <= higher_num){
             context.beginPath();
             context.moveTo(ev._x, (ev._y ));
-            console.log("pointerdown", ev._y)
             tool.started = true;
           }
           // } else {
@@ -154,7 +77,6 @@
 
         this.pointermove = function (ev) {
           if (tool.started && lower_num <= ev._y && ev._y <= higher_num) {
-            console.log(lower_num, ev._y, higher_num)
             context.lineTo(ev._x, ev._y);
             
             context.stroke();
