@@ -1,13 +1,13 @@
 
   let lower_num = 0;
-  let higher_num = 300;    
+  let higher_num = 310;    
   function tops() {
     lower_num = 0;
-    higher_num = 300;   
+    higher_num = 310;   
   }
 
   function bots() {
-    lower_num = 300;
+    lower_num = 290;
     higher_num = 600; 
   }
 
@@ -21,6 +21,7 @@
       var  canvas, context, tool;
       function init () {
         // Find the canvas element.
+
 
         canvas = document.getElementById(`canvas`);
 
@@ -41,6 +42,28 @@
           return;
         }
     
+        context.setLineDash([5, 15]);
+        context.beginPath(); 
+        // Staring point (10,45)
+        context.moveTo(10,310);
+        // End point (180,47)
+        context.lineTo(380,310);
+        // Make the line visible
+        context.stroke();
+
+        context.beginPath(); 
+        // Staring point (10,45)
+        context.moveTo(10,290);
+        // End point (180,47)
+        context.lineTo(380,290);
+        // Make the line visible
+        context.stroke();
+
+        
+        context.setLineDash([]);
+
+
+
         // Pencil tool instance.
         tool = new tool_pencil();
     
