@@ -1,3 +1,17 @@
+// let lower_num = 0;
+//   let higher_num = 310;    
+//   function tops() {
+//     lower_num = 0;
+//     higher_num = 310;   
+//   }
+
+//   function bots() {
+//     lower_num = 290;
+//     higher_num = 600; 
+//   }
+
+
+
 
   // Keep everything in anonymous function, called on window load.
 
@@ -26,25 +40,26 @@
           alert('Error: failed to getContext!');
           return;
         }
-    
+
         context.beginPath(); 
         context.strokeStyle = "#df4b26";
         context.lineJoin = "round";
         context.lineWidth = 5;
         // Staring point (10,45)
-        context.moveTo(150,0);
+        context.moveTo(150,300);
         // End point (180,47)
-          context.lineTo(150,10);
+          context.lineTo(150,290);
           // Make the line visible
           context.stroke();
 
           context.beginPath(); 
           // Staring point (10,45)
-          context.moveTo(250,0);
+          context.moveTo(250,300);
           // End point (180,47)
-          context.lineTo(250,10);
+          context.lineTo(250,290);
           // Make the line visible
           context.stroke();
+  
 
         // Pencil tool instance.
         tool = new tool_pencil();
@@ -69,10 +84,11 @@
 
         this.pointerdown = function (ev) {
           // if(event.pressure > 0){
-
+          // if(lower_num <= ev._y && ev._y <= higher_num){
             context.beginPath();
             context.moveTo(ev._x, (ev._y ));
             tool.started = true;
+          // }
           // } else {
           //   this.pointerup
           // }
@@ -230,10 +246,3 @@
       // init("canvasb");
     
     }, false); }
-
-
-
-
-
-
-
