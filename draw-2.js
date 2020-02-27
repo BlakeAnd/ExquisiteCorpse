@@ -10,7 +10,12 @@
 //     higher_num = 600; 
 //   }
 
-
+function combine_canvases () {
+  var can3 = document.getElementById('canvas3');
+  var ctx3 = can3.getContext('2d');
+  ctx3.drawImage(canvas, 0, 270);
+  ctx3.drawImage(canvas2, 0, 0);
+}
 
 
   // Keep everything in anonymous function, called on window load.
@@ -45,12 +50,7 @@
           return;
         }
 
-        function combine_canvases () {
-          var can3 = document.getElementById('canvas3');
-          var ctx3 = can3.getContext('2d');
-          ctx3.drawImage(can, 0, 0);
-          ctx3.drawImage(can2, 0, 0);
-        }
+
 
         context.beginPath(); 
         // Staring point (10,45)
