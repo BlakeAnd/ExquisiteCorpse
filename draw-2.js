@@ -12,7 +12,13 @@
 
 function combine_canvases () {
   var can3 = document.getElementById('canvas3');
-  var ctx3 = can3.getContext('2d');
+  var ctx3 = can3.getContext('2d'); 
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.rect(0, -70, 400, 100);
+  context.strokeStyle = "#ffffff";
+  context.stroke();
+ 
   ctx3.drawImage(canvas, 0, 270);
   ctx3.drawImage(canvas2, 0, 0);
 }
@@ -50,7 +56,7 @@ function combine_canvases () {
           return;
         }
 
-
+        
 
         context.beginPath(); 
         // Staring point (10,45)
