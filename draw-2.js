@@ -25,6 +25,7 @@
 
         canvas = document.getElementById(`canvas`);
         canvas2 = document.getElementById(`canvas2`);
+        canvas3 = document.getElementById(`canvas3`);
 
         if (!canvas || !canvas2) {
           alert('Error: I cannot find the canvas element!');
@@ -44,25 +45,34 @@
           return;
         }
 
+        function combine_canvases () {
+          var can3 = document.getElementById('canvas3');
+          var ctx3 = can3.getContext('2d');
+          ctx3.drawImage(can, 0, 0);
+          ctx3.drawImage(can2, 0, 0);
+        }
+
         context.beginPath(); 
-        context.strokeStyle = "#df4b26";
-        context.lineJoin = "round";
-        context.lineWidth = 5;
         // Staring point (10,45)
-        context.moveTo(150,300);
+        context.setLineDash([10, 10]);
+        context.moveTo(10, 30);
         // End point (180,47)
-          context.lineTo(150,290);
+          context.lineTo(390, 30);
           // Make the line visible
           context.stroke();
 
-          context.beginPath(); 
+          context2.beginPath(); 
+        context2.setLineDash([10, 10]);
+
           // Staring point (10,45)
-          context.moveTo(250,300);
+          context2.moveTo(10,270);
           // End point (180,47)
-          context.lineTo(250,290);
+          context2.lineTo(390,270);
           // Make the line visible
-          context.stroke();
+          context2.stroke();
   
+          context2.setLineDash([]);
+          context.setLineDash([]);
 
         // Pencil tool instance.
         tool = new tool_pencil();
@@ -108,10 +118,14 @@
             context.lineTo(ev._x, ev._y);
             
             context.stroke();
-            if(ev.y < 50){
-              context2.lineTo(ev._x, ev._y);
-              context2.stroke();
-            }
+            // if(ev.y < 50){
+            context2.beginPath();
+            context2.moveTo(ev._x, ev._y + 265);
+            context2.lineTo(ev._x,  ev._y + 270);
+            context2.stroke();
+            // } else{
+              // context2.beginPath();
+            // }
           } 
           // else{
           //   if (tool.started) {
@@ -125,7 +139,7 @@
 
         this.pointerup = function (ev) {
           if (tool.started) {
-            console.log("pointerup")
+            // console.log("pointerup")
             tool.pointermove(ev);
             tool.started = false;
           }
@@ -158,6 +172,11 @@
             context2.lineTo(ev._x, ev._y);
             
             context2.stroke();
+
+            context.beginPath();
+            context.moveTo(ev._x, ev._y - 265);
+            context.lineTo(ev._x,  ev._y - 270);
+            context.stroke();
             
           } 
           // else{

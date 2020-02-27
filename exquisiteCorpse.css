@@ -14,6 +14,12 @@
   z-index: -1;
   /* position: absolute; */
 }
+#canvas3{
+  border: 2px solid blue;
+  border-radius: 6px;
+  z-index: -1;
+  /* position: absolute; */
+}
 
 .cover{
   background: black;
@@ -25,4 +31,8 @@
 #top{
   margin-top: -200px;
   /* z-index: 9999; */
+}
+#canvases{
+  /* display: flex;
+  flex-direction: row; */
 }
