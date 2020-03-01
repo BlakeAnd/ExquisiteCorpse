@@ -13,11 +13,24 @@
 function combine_canvases () {
   var can3 = document.getElementById('canvas3');
   var ctx3 = can3.getContext('2d'); 
+
+
   context = canvas.getContext('2d');
-  context.beginPath();
-  context.rect(0, -70, 400, 100);
-  context.strokeStyle = "#ffffff";
-  context.stroke();
+  context2 = canvas2.getContext('2d');
+
+  // var imageData = ctx.getImageData(0, 0, w, h);
+
+  // // examine every pixel, 
+  // // change any old rgb to the new-rgb
+  // for (var i = 0; i < imageData.data.length; i += 4) {
+  //     // is this pixel the old rgb?
+  //     if (imageData.data[i] == oldRed && imageData.data[i + 1] == oldGreen && imageData.data[i + 2] == oldBlue) {
+  //         // change to your new rgb
+  //         imageData.data[i] = newRed;
+  //         imageData.data[i + 1] = newGreen;
+  //         imageData.data[i + 2] = newBlue;
+  //     }
+  // }
  
   ctx3.drawImage(canvas, 0, 270);
   ctx3.drawImage(canvas2, 0, 0);
@@ -32,6 +45,11 @@ function combine_canvases () {
       var canvas2, context2, tool2;
       function init () {
         // Find the canvas element.
+
+
+        var can3 = document.getElementById('canvas3');
+        var ctx3 = can3.getContext('2d'); 
+
 
 
         canvas = document.getElementById(`canvas`);
@@ -58,27 +76,27 @@ function combine_canvases () {
 
         
 
-        context.beginPath(); 
-        // Staring point (10,45)
-        context.setLineDash([10, 10]);
-        context.moveTo(10, 30);
-        // End point (180,47)
-          context.lineTo(390, 30);
-          // Make the line visible
-          context.stroke();
+        // context.beginPath(); 
+        // // Staring point (10,45)
+        // context.setLineDash([10, 10]);
+        // context.moveTo(10, 30);
+        // // End point (180,47)
+        //   context.lineTo(390, 30);
+        //   // Make the line visible
+        //   context.stroke();
 
-          context2.beginPath(); 
-        context2.setLineDash([10, 10]);
+        //   context2.beginPath(); 
+        // context2.setLineDash([10, 10]);
 
-          // Staring point (10,45)
-          context2.moveTo(10,270);
-          // End point (180,47)
-          context2.lineTo(390,270);
-          // Make the line visible
-          context2.stroke();
+        //   // Staring point (10,45)
+        //   context2.moveTo(10,270);
+        //   // End point (180,47)
+        //   context2.lineTo(390,270);
+        //   // Make the line visible
+        //   context2.stroke();
   
-          context2.setLineDash([]);
-          context.setLineDash([]);
+        //   context2.setLineDash([]);
+        //   context.setLineDash([]);
 
         // Pencil tool instance.
         tool = new tool_pencil();
@@ -179,11 +197,11 @@ function combine_canvases () {
             
             context2.stroke();
 
-            context.beginPath();
-            context.moveTo(ev._x, ev._y - 265);
+            // context.beginPath();
+            // context.moveTo(ev._x, ev._y - 265);
             context.lineTo(ev._x,  ev._y - 270);
             context.stroke();
-            
+          
           } 
           // else{
           //   if (tool.started) {
