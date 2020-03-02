@@ -129,6 +129,10 @@ function combine_canvases () {
           // if(lower_num <= ev._y && ev._y <= higher_num){
             context.beginPath();
             context.moveTo(ev._x, (ev._y ));
+
+            context2.beginPath();
+            context2.moveTo(ev._x, ev._y + 270);
+
             tool.started = true;
           // }
           // } else {
@@ -143,8 +147,7 @@ function combine_canvases () {
             
             context.stroke();
             // if(ev.y < 50){
-            context2.beginPath();
-            context2.moveTo(ev._x, ev._y + 265);
+
             context2.lineTo(ev._x,  ev._y + 270);
             context2.stroke();
             // } else{
@@ -184,6 +187,10 @@ function combine_canvases () {
             context2.beginPath();
             context2.moveTo(ev._x, (ev._y ));
             tool2.started = true;
+
+
+            context.beginPath();
+            context.moveTo(ev._x, ev._y - 270);
           // }
           // } else {
           //   this.pointerup
@@ -197,8 +204,6 @@ function combine_canvases () {
             
             context2.stroke();
 
-            // context.beginPath();
-            // context.moveTo(ev._x, ev._y - 265);
             context.lineTo(ev._x,  ev._y - 270);
             context.stroke();
           
