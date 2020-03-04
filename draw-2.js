@@ -17,23 +17,31 @@ function combine_canvases () {
 
   context = canvas.getContext('2d');
   context2 = canvas2.getContext('2d');
-
-  // var imageData = ctx.getImageData(0, 0, w, h);
-
-  // // examine every pixel, 
-  // // change any old rgb to the new-rgb
-  // for (var i = 0; i < imageData.data.length; i += 4) {
-  //     // is this pixel the old rgb?
-  //     if (imageData.data[i] == oldRed && imageData.data[i + 1] == oldGreen && imageData.data[i + 2] == oldBlue) {
-  //         // change to your new rgb
-  //         imageData.data[i] = newRed;
-  //         imageData.data[i + 1] = newGreen;
-  //         imageData.data[i + 2] = newBlue;
-  //     }
-  // }
  
   ctx3.drawImage(canvas, 0, 270);
   ctx3.drawImage(canvas2, 0, 0);
+
+    
+  var imageData = ctx3.getImageData(0, 0, 400, 600);
+  console.log(imageData.data.length);
+  //examine every pixel, 
+  //change any old rgb to the new-rgb
+  for (var i = 430000; i < 434000; i += 4) { 
+      // is this pixel the old rgb?
+      if (125 < imageData.data[i + 3] && imageData.data[i + 3] < 135) {
+          imageData.data[i + 3] = 0;
+      } 
+  }
+  for (var i = 478000; i < 482000; i += 4) { 
+    // is this pixel the old rgb?
+    if (125 < imageData.data[i + 3] && imageData.data[i + 3] < 135) {
+        imageData.data[i + 3] = 0;
+    } 
+}
+  ctx3.putImageData(imageData, 0, 0);
+  // put the re-colored image back on the image
+  // var img1 = document.getElementById("image1");
+  // img1.src = c.toDataURL('image/png');
 }
 
 
@@ -76,27 +84,27 @@ function combine_canvases () {
 
         
 
-        // context.beginPath(); 
-        // // Staring point (10,45)
-        // context.setLineDash([10, 10]);
-        // context.moveTo(10, 30);
-        // // End point (180,47)
-        //   context.lineTo(390, 30);
-        //   // Make the line visible
-        //   context.stroke();
+        context.beginPath(); 
+        // Staring point (10,45)
+        context.setLineDash([10, 10]);
+        context.moveTo(10, 30);
+        // End point (180,47)
+          context.lineTo(390, 30);
+          // Make the line visible
+          context.stroke();
 
-        //   context2.beginPath(); 
-        // context2.setLineDash([10, 10]);
+          context2.beginPath(); 
+        context2.setLineDash([10, 10]);
 
-        //   // Staring point (10,45)
-        //   context2.moveTo(10,270);
-        //   // End point (180,47)
-        //   context2.lineTo(390,270);
-        //   // Make the line visible
-        //   context2.stroke();
+          // Staring point (10,45)
+          context2.moveTo(10,270);
+          // End point (180,47)
+          context2.lineTo(390,270);
+          // Make the line visible
+          context2.stroke();
   
-        //   context2.setLineDash([]);
-        //   context.setLineDash([]);
+          context2.setLineDash([]);
+          context.setLineDash([]);
 
         // Pencil tool instance.
         tool = new tool_pencil();
