@@ -16,6 +16,7 @@
   /* position: absolute; */
 }
 #canvas3{
+  display: none;
   border: 2px solid blue;
   border-radius: 6px;
   z-index: -1;
