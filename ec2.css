@@ -3,13 +3,13 @@
   flex-direction: row;
 }
 #canvas{
+  /*  visibility: hidden; */
   border: 2px solid red;
   border-radius: 6px;
   z-index: -1;
   /* position: absolute; */
 }
 #canvas2{
-  /* visibility: hidden; */
   border: 2px solid blue;
   border-radius: 6px;
   z-index: -1;
