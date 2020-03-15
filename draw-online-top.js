@@ -71,20 +71,20 @@
         // canvas2 = document.getElementById(`canvas2`);
         // canvas3 = document.getElementById(`canvas3`);
 
-        if (!canvas || !canvas2) {
+        if (!canvas ) {
           alert('Error: I cannot find the canvas element!');
           return;
         }
     
-        if (!canvas.getContext || !canvas2.getContext) {
+        if (!canvas.getContext ) {
           alert('Error: no canvas.getContext!');
           return;
         }
     
         // Get the 2D canvas context.
         context = canvas.getContext('2d');
-        context2 = canvas2.getContext('2d');
-        if (!context || !context2) {
+        // context2 = canvas2.getContext('2d');
+        if (!context) {
           alert('Error: failed to getContext!');
           return;
         }
@@ -93,10 +93,13 @@
 
         context.beginPath(); 
         // Staring point (10,45)
-        context.setLineDash([10, 10]);
-        context.moveTo(10, 30);
+        // context.setLineDash([10, 10]);
+        context.moveTo(150, 0);
         // End point (180,47)
-          context.lineTo(390, 30);
+          context.lineTo(150, 20);
+          context.moveTo(250, 0);
+          // End point (180,47)
+          context.lineTo(250, 20);
           // Make the line visible
           context.stroke();
 
