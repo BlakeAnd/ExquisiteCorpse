@@ -17,13 +17,15 @@
 function combine_canvases () {
   // var can3 = document.getElementById('canvas3');
   // var ctx3 = can3.getContext('2d'); 
-  axios.get("http://localhost:5000/")
-    .then( res => {
-      console.log(res);
-    })
-    .catch( err => {
-      console.log(err);
-    })
+
+
+  // axios.get("http://localhost:5000/")
+  //   .then( res => {
+  //     console.log(res);
+  //   })
+  //   .catch( err => {
+  //     console.log(err);
+  //   })
 
 
   context = canvas.getContext('2d');
@@ -52,9 +54,18 @@ function combine_canvases () {
 //   ctx3.putImageData(imageData, 0, 0);
 
 
-// var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-// var JSON_img_data = JSON.stringify(imageData);
-// console.log(JSON_img_data);
+var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+var JSON_img_data = JSON.stringify(imageData);
+  // console.log(JSON_img_data);
+
+  // var ctx3 = can3.getContext('2d'); 
+  axios.post("http://localhost:5000/drawings", JSON_img_data)
+    .then( res => {
+      console.log("res!", res);
+    })
+    .catch( err => {
+      console.log(err);
+    })
 
 
 

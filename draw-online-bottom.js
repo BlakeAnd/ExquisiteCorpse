@@ -43,7 +43,7 @@ function combine_canvases () {
 
 var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 var JSON_img_data = JSON.stringify(imageData);
-console.log(JSON_img_data);
+// console.log(JSON_img_data);
   // put the re-colored image back on the image
   // var img1 = document.getElementById("image1");
   // img1.src = c.toDataURL('image/png');
