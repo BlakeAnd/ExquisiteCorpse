@@ -10,12 +10,20 @@
 //     higher_num = 600; 
 //   }
 
-
+// import 'axios';
+// const axios = require('axios');
 
 
 function combine_canvases () {
   // var can3 = document.getElementById('canvas3');
   // var ctx3 = can3.getContext('2d'); 
+  axios.get("http://localhost:5000/")
+    .then( res => {
+      console.log(res);
+    })
+    .catch( err => {
+      console.log(err);
+    })
 
 
   context = canvas.getContext('2d');
@@ -43,9 +51,13 @@ function combine_canvases () {
 // }
 //   ctx3.putImageData(imageData, 0, 0);
 
-var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-var JSON_img_data = JSON.stringify(imageData);
-console.log(JSON_img_data);
+
+// var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+// var JSON_img_data = JSON.stringify(imageData);
+// console.log(JSON_img_data);
+
+
+
   // put the re-colored image back on the image
   // var img1 = document.getElementById("image1");
   // img1.src = c.toDataURL('image/png');
@@ -132,9 +144,9 @@ console.log(JSON_img_data);
         canvas.addEventListener('pointermove',   ev_canvas, false);
         canvas.addEventListener('pointerup',   ev_canvas, false);
 
-        canvas2.addEventListener('pointerdown',  ev_canvas2, false);
-        canvas2.addEventListener('pointermove',   ev_canvas2, false);
-        canvas2.addEventListener('pointerup',   ev_canvas2, false);
+        // canvas2.addEventListener('pointerdown',  ev_canvas2, false);
+        // canvas2.addEventListener('pointermove',   ev_canvas2, false);
+        // canvas2.addEventListener('pointerup',   ev_canvas2, false);
         
       }
     
