@@ -10,19 +10,16 @@
 //     higher_num = 600; 
 //   }
 
+function combine_canvases () {
+  // var can3 = document.getElementById('canvas3');
+  // var ctx3 = can3.getContext('2d'); 
 
 
-
-// function combine_canvases () {
-//   var can3 = document.getElementById('canvas3');
-//   var ctx3 = can3.getContext('2d'); 
-
-
-//   context = canvas.getContext('2d');
-//   context2 = canvas2.getContext('2d');
+  // context = canvas.getContext('2d');
+  // context2 = canvas2.getContext('2d');
  
-//   ctx3.drawImage(canvas, 0, 270);
-//   ctx3.drawImage(canvas2, 0, 0);
+  // ctx3.drawImage(canvas, 0, 270);
+  // ctx3.drawImage(canvas2, 0, 0);
 
     
 //   var imageData = ctx3.getImageData(0, 0, 400, 600);
@@ -42,10 +39,13 @@
 //     } 
 // }
 //   ctx3.putImageData(imageData, 0, 0);
-//   // put the re-colored image back on the image
-//   // var img1 = document.getElementById("image1");
-//   // img1.src = c.toDataURL('image/png');
-// }
+
+var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+console.log(imageData);
+  // put the re-colored image back on the image
+  // var img1 = document.getElementById("image1");
+  // img1.src = c.toDataURL('image/png');
+}
 
 
 
@@ -93,17 +93,17 @@
         context.lineJoin = "round";
         context.lineWidth = 5;  
 
-        context.beginPath(); 
-        // Staring point (10,45)
-        // context.setLineDash([10, 10]);
-        context.moveTo(150, 300);
-        // End point (180,47)
-          context.lineTo(150, 280);
-          context.moveTo(250, 300);
+          context.beginPath(); 
+          // Staring point (10,45)
+          // context.setLineDash([10, 10]);
+          context.moveTo(150, 0);
           // End point (180,47)
-          context.lineTo(250, 280);
-          // Make the line visible
-          context.stroke();
+            context.lineTo(150, 20);
+            context.moveTo(250, 0);
+            // End point (180,47)
+            context.lineTo(250, 20);
+            // Make the line visible
+            context.stroke();
 
         //   context2.beginPath(); 
         // context2.setLineDash([10, 10]);
