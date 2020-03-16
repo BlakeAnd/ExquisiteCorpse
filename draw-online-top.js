@@ -89,7 +89,9 @@
           return;
         }
 
-        
+        context.strokeStyle = "#df4b26";
+        context.lineJoin = "round";
+        context.lineWidth = 5;
 
         context.beginPath(); 
         // Staring point (10,45)
@@ -114,7 +116,7 @@
         //   context2.stroke();
   
         //   context2.setLineDash([]);
-        context.setLineDash([]);
+        // context.setLineDash([]);
 
         // Pencil tool instance.
         tool = new tool_pencil();
@@ -138,9 +140,9 @@
         var tool = this;
         this.started = false;
 
-      context.strokeStyle = "#df4b26";
-      context.lineJoin = "round";
-      context.lineWidth = 5;
+      // context.strokeStyle = "#df4b26";
+      // context.lineJoin = "round";
+      // context.lineWidth = 5;
 
         this.pointerdown = function (ev) {
           // if(event.pressure > 0){
@@ -148,8 +150,8 @@
             context.beginPath();
             context.moveTo(ev._x, (ev._y ));
 
-            context2.beginPath();
-            context2.moveTo(ev._x, ev._y + 270);
+            // context2.beginPath();
+            // context2.moveTo(ev._x, ev._y + 270);
 
             tool.started = true;
           // }
@@ -166,8 +168,8 @@
             context.stroke();
             // if(ev.y < 50){
 
-            context2.lineTo(ev._x,  ev._y + 270);
-            context2.stroke();
+            // context2.lineTo(ev._x,  ev._y + 270);
+            // context2.stroke();
             // } else{
               // context2.beginPath();
             // }
@@ -191,59 +193,59 @@
         };
       }
 
-      function tool_pencil2 () {
-        var tool2 = this;
-        this.started = false;
+      // function tool_pencil2 () {
+      //   var tool2 = this;
+      //   this.started = false;
 
-      context2.strokeStyle = "#df4b26";
-      context2.lineJoin = "round";
-      context2.lineWidth = 5;
+      // context2.strokeStyle = "#df4b26";
+      // context2.lineJoin = "round";
+      // context2.lineWidth = 5;
 
-        this.pointerdown = function (ev) {
-          // if(event.pressure > 0){
-          // if(lower_num <= ev._y && ev._y <= higher_num){
-            context2.beginPath();
-            context2.moveTo(ev._x, (ev._y ));
-            tool2.started = true;
+      //   this.pointerdown = function (ev) {
+      //     // if(event.pressure > 0){
+      //     // if(lower_num <= ev._y && ev._y <= higher_num){
+      //       context2.beginPath();
+      //       context2.moveTo(ev._x, (ev._y ));
+      //       tool2.started = true;
 
 
-            context.beginPath();
-            context.moveTo(ev._x, ev._y - 270);
-          // }
-          // } else {
-          //   this.pointerup
-          // }
+      //       context.beginPath();
+      //       context.moveTo(ev._x, ev._y - 270);
+      //     // }
+      //     // } else {
+      //     //   this.pointerup
+      //     // }
 
-      };
+      // };
 
-        this.pointermove = function (ev) {
-          if (tool2.started) {
-            context2.lineTo(ev._x, ev._y);
+      //   this.pointermove = function (ev) {
+      //     if (tool2.started) {
+      //       context2.lineTo(ev._x, ev._y);
             
-            context2.stroke();
+      //       context2.stroke();
 
-            context.lineTo(ev._x,  ev._y - 270);
-            context.stroke();
+      //       context.lineTo(ev._x,  ev._y - 270);
+      //       context.stroke();
           
-          } 
-          // else{
-          //   if (tool.started) {
-          //     console.log("pointerup")
-          //     tool.pointermove(ev);
-          //     tool.started = false;
-          //   }
-          // }
+      //     } 
+      //     // else{
+      //     //   if (tool.started) {
+      //     //     console.log("pointerup")
+      //     //     tool.pointermove(ev);
+      //     //     tool.started = false;
+      //     //   }
+      //     // }
 
-        };
+      //   };
 
-        this.pointerup = function (ev) {
-          if (tool2.started) {
-            // console.log("pointerup")
-            tool2.pointermove(ev);
-            tool2.started = false;
-          }
-        };
-      }
+      //   this.pointerup = function (ev) {
+      //     if (tool2.started) {
+      //       // console.log("pointerup")
+      //       tool2.pointermove(ev);
+      //       tool2.started = false;
+      //     }
+      //   };
+      // }
     
       // The general-purpose event handler. This function just determines the mouse 
       // position relative to the canvas element.
@@ -263,23 +265,23 @@
         }
       }
 
-      function ev_canvas2 (ev) {
-        if (ev.layerX || ev.layerX == 0) { // Firefox
-          ev._x = ev.layerX;
-          ev._y = ev.layerY;
-        } else if (ev.offsetX || ev.offsetX == 0) { // Opera
-          ev._x = ev.offsetX;
-          ev._y = ev.offsetY;
-        }
+      // function ev_canvas2 (ev) {
+      //   if (ev.layerX || ev.layerX == 0) { // Firefox
+      //     ev._x = ev.layerX;
+      //     ev._y = ev.layerY;
+      //   } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+      //     ev._x = ev.offsetX;
+      //     ev._y = ev.offsetY;
+      //   }
     
-        // Call the event handler of the tool.
-        // var func = tool[ev.type]; 
-        var func2 = tool2[ev.type]; 
-        if (func2) {
-          // console.log(ev.y);
-          func2(ev);
-        }
-      }
+      //   // Call the event handler of the tool.
+      //   // var func = tool[ev.type]; 
+      //   var func2 = tool2[ev.type]; 
+      //   if (func2) {
+      //     // console.log(ev.y);
+      //     func2(ev);
+      //   }
+      // }
 
 
 
