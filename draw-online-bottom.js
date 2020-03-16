@@ -1,3 +1,4 @@
+
 // let lower_num = 0;
 //   let higher_num = 310;    
 //   function tops() {
@@ -15,7 +16,7 @@ function combine_canvases () {
   // var ctx3 = can3.getContext('2d'); 
 
 
-  // context = canvas.getContext('2d');
+  context = canvas.getContext('2d');
   // context2 = canvas2.getContext('2d');
  
   // ctx3.drawImage(canvas, 0, 270);
@@ -41,7 +42,8 @@ function combine_canvases () {
 //   ctx3.putImageData(imageData, 0, 0);
 
 var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-console.log(imageData);
+var JSON_img_data = JSON.stringify(imageData);
+console.log(JSON_img_data);
   // put the re-colored image back on the image
   // var img1 = document.getElementById("image1");
   // img1.src = c.toDataURL('image/png');

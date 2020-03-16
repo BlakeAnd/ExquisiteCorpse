@@ -13,16 +13,16 @@
 
 
 
-// function combine_canvases () {
-//   var can3 = document.getElementById('canvas3');
-//   var ctx3 = can3.getContext('2d'); 
+function combine_canvases () {
+  // var can3 = document.getElementById('canvas3');
+  // var ctx3 = can3.getContext('2d'); 
 
 
-//   context = canvas.getContext('2d');
-//   context2 = canvas2.getContext('2d');
+  context = canvas.getContext('2d');
+  // context2 = canvas2.getContext('2d');
  
-//   ctx3.drawImage(canvas, 0, 270);
-//   ctx3.drawImage(canvas2, 0, 0);
+  // ctx3.drawImage(canvas, 0, 270);
+  // ctx3.drawImage(canvas2, 0, 0);
 
     
 //   var imageData = ctx3.getImageData(0, 0, 400, 600);
@@ -42,10 +42,14 @@
 //     } 
 // }
 //   ctx3.putImageData(imageData, 0, 0);
-//   // put the re-colored image back on the image
-//   // var img1 = document.getElementById("image1");
-//   // img1.src = c.toDataURL('image/png');
-// }
+
+var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+var JSON_img_data = JSON.stringify(imageData);
+console.log(JSON_img_data);
+  // put the re-colored image back on the image
+  // var img1 = document.getElementById("image1");
+  // img1.src = c.toDataURL('image/png');
+}
 
 
 
