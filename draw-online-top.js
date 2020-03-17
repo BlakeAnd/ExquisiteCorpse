@@ -59,9 +59,13 @@ var JSON_img_data = JSON.stringify(imageData);
   // console.log(JSON_img_data);
 
   // var ctx3 = can3.getContext('2d'); 
-  axios.post("http://localhost:5000/drawings", JSON_img_data)
+  axios({
+  method: 'post',
+  url: "http://localhost:5000/drawings",
+    data: JSON_img_data
+  })
     .then( res => {
-      console.log("res!", res.config);
+      console.log("res!", res);
     })
     .catch( err => {
       console.log(err);
