@@ -41,7 +41,7 @@ class Canvas extends Component {
     });
   }
   
-  relativeCoordinatesForEvent(mouseEvent) {
+  relativeCoordinatesForEvent = (mouseEvent) => {
     const boundingRect = this.refs.drawArea.getBoundingClientRect();
     return new Immutable.Map({
       x: mouseEvent.clientX - boundingRect.left,
@@ -51,7 +51,7 @@ class Canvas extends Component {
 
 render() {
   return (
-    <div ref="drawArea" className="drawAre"     
+    <div ref="drawArea" className="drawArea"     
       onMouseDown={this.handleMouseDown.bind(this)}
       onMouseMove={this.handleMouseMove}
       >
