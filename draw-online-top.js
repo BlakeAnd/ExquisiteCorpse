@@ -17,7 +17,7 @@ console.log(url_val);
 
 function combine_canvases () {
 
-window.location.href = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
+window.location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 // location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
 // var opened = window.open("");
