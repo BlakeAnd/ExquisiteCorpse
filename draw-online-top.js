@@ -20,6 +20,9 @@ function combine_canvases () {
 window.location.href = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 // location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
+var opened = window.open("");
+opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+
 //   context = canvas.getContext('2d');
 
 // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
