@@ -12,15 +12,8 @@ console.log(hash);
 console.log(hex_val);
 console.log(url_val);
 
-
-window.onload = function() {
-	var links = document.links;
-	for(var h in links) {
-		var rand = Math.floor(Math.random() * 10000);
-		links[h].href += (links[h].href.indexOf('?') == -1 ? '?' : '&')+'rand='+rand;
-	}
-}
-
+var opened = window.open("");
+opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
 
