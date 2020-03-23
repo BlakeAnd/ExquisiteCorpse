@@ -1,35 +1,50 @@
 
-sha256('Message to hash');
-// sha224('Message to hash');
- 
+var seed = Math.random();
+// console.log(seed);
+seed = seed.toString();
+sha256(seed);
 var hash = sha256.create();
-hash.update('Message to hash');
-hash.hex();
+hash.update(seed);
+let hex_val = hash.hex();
+let url_val = hex_val.substring(0, 8);
+
 console.log(hash);
+console.log(hex_val);
+console.log(url_val);
+
+
+window.onload = function() {
+	var links = document.links;
+	for(var h in links) {
+		var rand = Math.floor(Math.random() * 10000);
+		links[h].href += (links[h].href.indexOf('?') == -1 ? '?' : '&')+'rand='+rand;
+	}
+}
 
 
 function combine_canvases () {
 
+window.location.href = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
+// location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
+//   context = canvas.getContext('2d');
 
-  context = canvas.getContext('2d');
+// var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+// var JSON_img_data = JSON.stringify(imageData);
+//   // console.log(JSON_img_data);
 
-var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-var JSON_img_data = JSON.stringify(imageData);
-  // console.log(JSON_img_data);
-
-  // var ctx3 = can3.getContext('2d'); 
-  axios({
-    method: 'post',
-    url: "http://localhost:5000/drawings",
-    data: JSON_img_data
-  })
-    .then( res => {
-      console.log("res!", res);
-    })
-    .catch( err => {
-      console.log(err);
-    })
+//   // var ctx3 = can3.getContext('2d'); 
+//   axios({
+//     method: 'post',
+//     url: `http://localhost:5000/drawings/${url_val}`,
+//     data: JSON_img_data
+//   })
+//     .then( res => {
+//       console.log("res!", res);
+//     })
+//     .catch( err => {
+//       console.log(err);
+//     })
 
 }
 
