@@ -12,16 +12,16 @@ console.log(hash);
 console.log(hex_val);
 console.log(url_val);
 
-var opened = window.open("");
-opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+// var opened = window.open("");
+// opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
 
 window.location.href = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 // location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
-var opened = window.open("");
-opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+// var opened = window.open("");
+document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 //   context = canvas.getContext('2d');
 
