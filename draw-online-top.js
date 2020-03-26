@@ -29,11 +29,11 @@ console.log(makeid(4));
 
 function combine_canvases () {
 
-window.location.replace(`https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`);
-location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
+// window.location.replace(`https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`);
+// location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
-// var opened = window.open("");
-// document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+var opened = window.open(`https://drawexquisitecorpse.netlify.com/draw-online-top?${url_val}`);
+// opened.document.write("<html><head><title>MyTitle</title></head><body>testing</body></html>");
 
 //   context = canvas.getContext('2d');
 
