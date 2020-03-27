@@ -12,27 +12,49 @@ console.log(hash);
 console.log(hex_val);
 console.log(url_val);
 
-function makeid(l)
-{
-var text = "";
-var char_list = "abcdefghijklmnopqrstuvwxyz";
-for(var i=0; i < l; i++ )
-{  
-text += char_list.charAt(Math.floor(Math.random() * char_list.length));
-}
-return text;
-}
-console.log(makeid(4));
+// function makeid(l)
+// {
+// var text = "";
+// var char_list = "abcdefghijklmnopqrstuvwxyz";
+// for(var i=0; i < l; i++ )
+// {  
+// text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+// }
+// return text;
+// }
+// console.log(makeid(4));
 
 // var opened = window.open("");
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
 
+  let text = `https://drawexquisitecorpse.netlify.com/joingame/${url_val}`;
+  var dummy = document.createElement("textarea");
+  // to avoid breaking orgain page when copying more words
+  // cant copy when adding below this code
+  // dummy.style.display = 'none'
+  document.body.appendChild(dummy);
+  //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+  dummy.value = text;
+  dummy.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummy);
+
+
+
+  // let str = "VERY COOL string";
+
+  // var dummyContent = "this is to be copied to clipboard";
+  // var dummy = $('<input>').val(dummyContent).appendTo('body').select();
+  // document.execCommand('copy');
+
+  // document.execCommand('copy');
+
 // window.location.replace(`https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`);
 // location.replace = `https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`;
 
-var opened = window.open(`https://drawexquisitecorpse.netlify.com/draw-online-top?${url_val}`);
+// var opened = window.open(`https://drawexquisitecorpse.netlify.com/draw-online-top?${url_val}`);
 // opened.document.write("<html><head><title>MyTitle</title></head><body>testing</body></html>");
 
 //   context = canvas.getContext('2d');
