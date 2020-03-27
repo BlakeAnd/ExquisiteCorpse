@@ -12,11 +12,11 @@ function selectedRandom() {
 
 function selectedTop() {
   canvas = "top";
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`);
+  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
 }
 
 function selectedBottom() {
   canvas = "bottom";
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/draw-online-top/${url_val}`);
+  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
 }
 
