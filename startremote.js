@@ -1,4 +1,4 @@
-let canvas = ".";
+let canvas_selection = ".";
 
 function selectedRandom() {
   let rand = Math.random();
@@ -11,12 +11,12 @@ function selectedRandom() {
 }
 
 function selectedTop() {
-  canvas = "top";
+  canvas_selection = "top";
   window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
 }
 
 function selectedBottom() {
-  canvas = "bottom";
+  canvas_selection = "bottom";
   window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
 }
 

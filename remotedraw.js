@@ -1,4 +1,4 @@
-console.log("canvas", canvas);
+console.log("canvas selction", canvas_selection);
 var seed = Math.random();
 // console.log(seed);
 seed = seed.toString();
