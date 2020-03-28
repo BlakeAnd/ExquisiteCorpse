@@ -12,7 +12,10 @@ function selectedRandom() {
 
 function selectedTop() {
   canvas_selection = "top";
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
+  // window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
+  history.pushState({
+    id: 'homepage'
+}, 'Home | My App', 'https://drawexquisitecorpse.netlify.com/remotedraw');
 }
 
 function selectedBottom() {
