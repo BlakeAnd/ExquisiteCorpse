@@ -1,4 +1,6 @@
-console.log("canvas selction", localStorage.getItem(canvas_selection));
+console.log("canvas selction", localStorage.getItem("canvas_selection"));
+
+
 var seed = Math.random();
 // console.log(seed);
 seed = seed.toString();
