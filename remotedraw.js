@@ -14,20 +14,20 @@ console.log(hash);
 console.log(hex_val);
 console.log(url_val);
 
-// function makeid(l)
-// {
-// var text = "";
-// var char_list = "abcdefghijklmnopqrstuvwxyz";
-// for(var i=0; i < l; i++ )
-// {  
-// text += char_list.charAt(Math.floor(Math.random() * char_list.length));
-// }
-// return text;
-// }
-// console.log(makeid(4));
+function makeid(l)
+{
+var text = "";
+var char_list = "abcdefghijklmnopqrstuvwxyz";
+for(var i=0; i < l; i++ )
+{  
+text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+}
+return text;
+}
+console.log(makeid(4));
 
-// var opened = window.open("");
-// opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+var opened = window.open("");
+opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
 
