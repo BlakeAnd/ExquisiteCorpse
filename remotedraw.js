@@ -1,41 +1,16 @@
-let canvas_selection = ".";
+console.log("canvas selction", localStorage.getItem(canvas_selection));
+var seed = Math.random();
+// console.log(seed);
+seed = seed.toString();
+sha256(seed);
+var hash = sha256.create();
+hash.update(seed);
+let hex_val = hash.hex();
+let url_val = hex_val.substring(0, 8);
 
-function selectedRandom() {
-  let rand = Math.random();
-  if (rand < 0.5){
-    selectedTop();
-  } 
-  else {
-    selectedBottom();
-  }
-}
-
-function selectedTop() {
-  canvas_selection = "top";
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
-}
-
-function selectedBottom() {
-  canvas_selection = "bottom";
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
-}
-
-
-
-
-// console.log("canvas selction", canvas_selection);
-// var seed = Math.random();
-// // console.log(seed);
-// seed = seed.toString();
-// sha256(seed);
-// var hash = sha256.create();
-// hash.update(seed);
-// let hex_val = hash.hex();
-// let url_val = hex_val.substring(0, 8);
-
-// console.log(hash);
-// console.log(hex_val);
-// console.log(url_val);
+console.log(hash);
+console.log(hex_val);
+console.log(url_val);
 
 // function makeid(l)
 // {
