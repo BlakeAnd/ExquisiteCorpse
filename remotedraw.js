@@ -6,13 +6,18 @@ function make_join_url() {
   let canvas_other = "";
   if(canvas_selection = "top"){
     canvas_other = "bottom";
-  } else {canvas_other = "top";} 
-  let join_url = `https://drawexquisitecorpse.netlify.com/joingame?${pair_id}&${canvas_other}`;
+  } 
+  else {canvas_other = "top";} 
+  let join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
   console.log("url", join_url);
 }
-
 if (localStorage.getItem("player_status") === "starting"){
+  console.log("starting");
   make_join_url();
+} 
+else {
+  localStorage.setItem("player_status", "joining");
+  // localStorage.setItem("pair_id", "joining");
 }
 
   // var seed = Math.random();
