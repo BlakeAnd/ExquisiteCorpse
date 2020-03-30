@@ -1,47 +1,61 @@
 console.log("canvas selction", localStorage.getItem("canvas_selection"));
 
-
-var seed = Math.random();
-// console.log(seed);
-seed = seed.toString();
-sha256(seed);
-var hash = sha256.create();
-hash.update(seed);
-let hex_val = hash.hex();
-let url_val = hex_val.substring(0, 8);
-
-console.log(hash);
-console.log(hex_val);
-console.log(url_val);
-
-function makeid(l)
-{
-var text = "";
-var char_list = "abcdefghijklmnopqrstuvwxyz";
-for(var i=0; i < l; i++ )
-{  
-text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+function make_join_url() {
+  let pair_id = localStorage.getItem("pair_id");
+  let canvas_selection = localStorage.getItem("canvas_selection");
+  let canvas_other = "";
+  if(canvas_selection = "top"){
+    canvas_other = "bottom";
+  } else {canvas_other = "top";} 
+  let join_url = `https://drawexquisitecorpse.netlify.com/joingame?${pair_id}&${canvas_other}`;
+  console.log("url", join_url);
 }
-return text;
-}
-console.log(makeid(4));
 
-var opened = window.open("");
-opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+if (localStorage.getItem("player_status") === "starting"){
+  make_join_url();
+}
+
+  // var seed = Math.random();
+  // // console.log(seed);
+  // seed = seed.toString();
+  // sha256(seed);
+  // var hash = sha256.create();
+  // hash.update(seed);
+  // let hex_val = hash.hex();
+  // let url_val = hex_val.substring(0, 8);
+
+  // console.log(hash);
+  // console.log(hex_val);
+  // console.log(url_val);
+
+// function makeid(l)
+// {
+// var text = "";
+// var char_list = "abcdefghijklmnopqrstuvwxyz";
+// for(var i=0; i < l; i++ )
+// {  
+// text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+// }
+// return text;
+// }
+// console.log(makeid(4));
+
+// var opened = window.open("");
+// opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
 
-  let text = `https://drawexquisitecorpse.netlify.com/joingame/${url_val}`;
-  var dummy = document.createElement("textarea");
-  // to avoid breaking orgain page when copying more words
-  // cant copy when adding below this code
-  // dummy.style.display = 'none'
-  document.body.appendChild(dummy);
-  //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-  dummy.value = text;
-  dummy.select();
-  document.execCommand("copy");
-  document.body.removeChild(dummy);
+  // let text = `https://drawexquisitecorpse.netlify.com/joingame/${url_val}`;
+  // var dummy = document.createElement("textarea");
+  // // to avoid breaking orgain page when copying more words
+  // // cant copy when adding below this code
+  // // dummy.style.display = 'none'
+  // document.body.appendChild(dummy);
+  // //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+  // dummy.value = text;
+  // dummy.select();
+  // document.execCommand("copy");
+  // document.body.removeChild(dummy);
 
 
 

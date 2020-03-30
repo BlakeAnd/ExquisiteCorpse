@@ -1,3 +1,4 @@
+localStorage.setItem("player_status", "starting")
 makeid();
 
 function selectedRandom() {
@@ -30,6 +31,6 @@ function makeid() {
     text += char_list.charAt(Math.floor(Math.random() * char_list.length));
   }
   console.log(text);
-  localStorage.setItem("exquisite_session_id", text);
+  localStorage.setItem("pair_id", text);
 }
 
