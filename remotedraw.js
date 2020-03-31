@@ -49,11 +49,11 @@ else {
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
-//   context = canvas.getContext('2d');
+  context = canvas.getContext('2d');
 
-// var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-// var JSON_img_data = JSON.stringify(imageData);
-//   // console.log(JSON_img_data);
+var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+var JSON_img_data = JSON.stringify(imageData);
+  // console.log(JSON_img_data);
 
 //   // var ctx3 = can3.getContext('2d'); 
   let url_val = localStorage.getItem("pair_id");
