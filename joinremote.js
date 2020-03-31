@@ -9,3 +9,4 @@ console.log("id", pair_id, "canv", canvas_selection);
 localStorage.setItem("pair_id", pair_id);
 localStorage.setItem("canvas_selection", canvas_selection);
 localStorage.setItem("player_status", "joining");
+window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
