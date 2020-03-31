@@ -56,6 +56,8 @@ function combine_canvases () {
 //   // console.log(JSON_img_data);
 
 //   // var ctx3 = can3.getContext('2d'); 
+  let url_val = localStorage.getItem("pair_id");
+
   axios({
     method: 'post',
     url: `http://localhost:5000/drawings/${url_val}`,
