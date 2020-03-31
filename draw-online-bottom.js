@@ -95,17 +95,17 @@ var JSON_img_data = JSON.stringify(imageData);
         context.lineJoin = "round";
         context.lineWidth = 5;  
 
-          context.beginPath(); 
-          // Staring point (10,45)
-          // context.setLineDash([10, 10]);
-          context.moveTo(150, 0);
+        context.beginPath(); 
+        // Staring point (10,45)
+        // context.setLineDash([10, 10]);
+        context.moveTo(150, 0);
+        // End point (180,47)
+          context.lineTo(150, 20);
+          context.moveTo(250, 0);
           // End point (180,47)
-            context.lineTo(150, 20);
-            context.moveTo(250, 0);
-            // End point (180,47)
-            context.lineTo(250, 20);
-            // Make the line visible
-            context.stroke();
+          context.lineTo(250, 20);
+          // Make the line visible
+          context.stroke();
 
         //   context2.beginPath(); 
         // context2.setLineDash([10, 10]);

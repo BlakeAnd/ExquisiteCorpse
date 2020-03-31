@@ -140,7 +140,7 @@ function combine_canvases () {
         context.strokeStyle = "#df4b26";
         context.lineJoin = "round";
         context.lineWidth = 5;  
-
+        if(localStorage.getItem("canvas_selection") == "top" ){
           context.beginPath(); 
           // Staring point (10,45)
           // context.setLineDash([10, 10]);
@@ -152,6 +152,20 @@ function combine_canvases () {
             context.lineTo(250, 280);
             // Make the line visible
             context.stroke();
+        } else { 
+          context.beginPath(); 
+          // Staring point (10,45)
+          // context.setLineDash([10, 10]);
+          context.moveTo(150, 0);
+          // End point (180,47)
+            context.lineTo(150, 20);
+            context.moveTo(250, 0);
+            // End point (180,47)
+            context.lineTo(250, 20);
+            // Make the line visible
+            context.stroke();
+        }
+
         tool = new tool_pencil();
         // tool2 = new tool_pencil2();
     
