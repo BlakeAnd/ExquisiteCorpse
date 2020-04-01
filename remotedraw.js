@@ -49,19 +49,22 @@ else {
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
-  context = canvas.getContext('2d');
+    context = canvas.getContext('2d');
 
 var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 var JSON_img_data = JSON.stringify(imageData);
   // console.log(JSON_img_data);
 
 //   // var ctx3 = can3.getContext('2d'); 
-  let url_val = localStorage.getItem("pair_id");
+let pair_id = localStorage.getItem("pair_id");
+let canvas = localStorage.getItem("canvas_selection");
 
   axios({
     method: 'post',
-    url: `http://localhost:5000/drawings/${url_val}`,
-    data: JSON_img_data
+    url: `http://localhost:5000/drawings`,
+    data: JSON_img_data, 
+    id: pair_id, 
+    canvas: canvas
   })
     .then( res => {
       console.log("res!", res);
