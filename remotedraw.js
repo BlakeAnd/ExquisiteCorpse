@@ -59,12 +59,16 @@ var JSON_img_data = JSON.stringify(imageData);
 let pair_id = localStorage.getItem("pair_id");
 let canvas = localStorage.getItem("canvas_selection");
 
+let data = {
+  img_data: JSON_img_data,
+  canvas: canvas,
+  id: id
+}
+
   axios({
     method: 'post',
     url: `http://localhost:5000/drawings`,
-    data: JSON_img_data, 
-    id: pair_id, 
-    canvas: canvas
+    data: data
   })
     .then( res => {
       console.log("res!", res);
