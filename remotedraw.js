@@ -60,7 +60,7 @@ let pair_id = localStorage.getItem("pair_id");
 let canvas = localStorage.getItem("canvas_selection");
 
 let data = {
-  img_data: JSON_img_data,
+  // img_data: JSON_img_data,
   canvas: canvas,
   id: id
 }
