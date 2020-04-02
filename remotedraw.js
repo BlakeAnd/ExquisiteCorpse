@@ -49,21 +49,22 @@ else {
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
-    context = canvas.getContext('2d');
+  context = canvas.getContext('2d');
 
-var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-var JSON_img_data = JSON.stringify(imageData);
-  // console.log(JSON_img_data);
+  var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  var JSON_img_data = JSON.stringify(imageData);
+    // console.log(JSON_img_data);
 
-//   // var ctx3 = can3.getContext('2d'); 
-let pair_id = localStorage.getItem("pair_id");
-let canvas = localStorage.getItem("canvas_selection");
+  //   // var ctx3 = can3.getContext('2d'); 
 
-let data = {
-  // img_data: JSON_img_data,
-  canvas: canvas,
-  id: id
-}
+  let pair_id = localStorage.getItem("pair_id");
+  let selected_canvas = localStorage.getItem("canvas_selection");
+
+  let data = {
+    // img_data: JSON_img_data,
+    selected_canvas: selected_canvas,
+    id: id
+  }
 
   axios({
     method: 'post',
@@ -78,11 +79,6 @@ let data = {
     })
 
 }
-
-
-
-
-
 
   // Keep everything in anonymous function, called on window load.
 
