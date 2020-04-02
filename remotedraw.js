@@ -52,7 +52,7 @@ else {
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
-  let combined_canvas = document.getElementById('canvas3');
+  let combined_canvas = document.getElementById('combined_canvas');
   let combined_context = combined_canvas.getContext('2d'); 
 
 
