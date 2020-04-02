@@ -49,6 +49,10 @@ else {
 // opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
 
 function combine_canvases () {
+  let combined_canvas = document.getElementById('canvas3');
+  let combined_context = combined_canvas.getContext('2d'); 
+
+
   context = canvas.getContext('2d');
 
   var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -79,6 +83,8 @@ function combine_canvases () {
     .catch( err => {
       console.log(err);
     })
+
+    // combined_context.drawImage(res., 0, 600);
 
 }
 
