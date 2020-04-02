@@ -61,7 +61,7 @@ function combine_canvases () {
   let selected_canvas = localStorage.getItem("canvas_selection");
 
   let data = {
-    // img_data: JSON_img_data,
+    img_data: imageData,
     selected_canvas: selected_canvas,
     pair_id: pair_id
   }
