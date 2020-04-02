@@ -4,7 +4,7 @@ function make_join_url() {
   let pair_id = localStorage.getItem("pair_id");
   let canvas_selection = localStorage.getItem("canvas_selection");
   let canvas_other = "";
-  if(canvas_selection = "top"){
+  if(canvas_selection === "top"){
     canvas_other = "bottom";
   } 
   else {
@@ -13,6 +13,7 @@ function make_join_url() {
   let join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
   console.log("url", join_url);
 }
+
 if (localStorage.getItem("player_status") === "starting"){
   console.log("starting");
   make_join_url();
