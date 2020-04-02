@@ -52,7 +52,9 @@ function combine_canvases () {
   context = canvas.getContext('2d');
 
   var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  console.log(imageData.data.length);
   var JSON_img_data = JSON.stringify(imageData);
+  console.log(JSON_img_data);
     // console.log(JSON_img_data);
 
   //   // var ctx3 = can3.getContext('2d'); 
