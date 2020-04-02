@@ -7,7 +7,9 @@ function make_join_url() {
   if(canvas_selection = "top"){
     canvas_other = "bottom";
   } 
-  else {canvas_other = "top";} 
+  else {
+    canvas_other = "top";
+  } 
   let join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
   console.log("url", join_url);
 }
