@@ -63,7 +63,7 @@ function combine_canvases () {
   let data = {
     // img_data: JSON_img_data,
     selected_canvas: selected_canvas,
-    id: id
+    pair_id: pair_id
   }
 
   axios({
