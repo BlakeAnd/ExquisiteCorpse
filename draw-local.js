@@ -11,8 +11,6 @@
 //   }
 
 
-
-
 function combine_canvases () {
   document.getElementById("canvas3").style.display = "inline";
   var can3 = document.getElementById('canvas3');
