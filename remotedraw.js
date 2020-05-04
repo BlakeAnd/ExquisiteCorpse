@@ -69,7 +69,7 @@ function combine_canvases () {
       console.log("res!", res);
     })
     .catch( err => {
-      console.log(err);
+      console.log("err!", err);
     })
 
     // combined_context.drawImage(res., 0, 600);
