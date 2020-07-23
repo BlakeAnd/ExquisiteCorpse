@@ -59,6 +59,7 @@ function combine_canvases () {
     selected_canvas: selected_canvas,
     pair_id: pair_id
   }
+  console.log("data sent:", data)
 
   axios({
     method: 'post',
