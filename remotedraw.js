@@ -51,6 +51,9 @@ function combine_canvases () {
 
   //   // var ctx3 = can3.getContext('2d'); 
 
+  let combinedImageData = combined_context.getImageData(0,0, 2, 4);
+
+
   let pair_id = localStorage.getItem("pair_id");
   let selected_canvas = localStorage.getItem("canvas_selection");
 
@@ -67,9 +70,9 @@ function combine_canvases () {
     data: data
   })
     .then( res => {
-      res.data[0].image_data.data = Uint8ClampedArray.from(res.data[0].image_data.data);
-      let combined_data = {};
-      combined_data.set(res.data[0].image_data.data);
+
+      let combined_data = Uint8ClampedArray.from(res.data[0].image_data.data);
+      combinedImageData.data.set(combined_data);
       console.log("combined", combined_data);
       console.log("res!", res);
       combined_context.putImageData(combined_data, 0, 0);
