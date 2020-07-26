@@ -63,10 +63,13 @@ function combine_canvases () {
     pair_id: pair_id
   }
   console.log("data sent:", data)
-
+  
+  let deployed = "https://drawexquisitecorpse.herokuapp.com";
+  let local = "http://localhost:5000";
+  let url = deployed;
   axios({
     method: 'post',
-    url: `http://localhost:5000/drawings`,
+    url: `${url}/drawings`,
     data: data
   })
     .then( res => {
