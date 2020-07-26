@@ -51,7 +51,7 @@ function combine_canvases () {
 
   //   // var ctx3 = can3.getContext('2d'); 
 
-  let combinedImageData = combined_context.getImageData(0,0, 20, 40);
+  let combinedImageData = combined_context.getImageData(0,0, 200, 400);
 
 
   let pair_id = localStorage.getItem("pair_id");
