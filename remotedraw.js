@@ -68,8 +68,9 @@ function combine_canvases () {
   })
     .then( res => {
       res.data[0].image_data.data = Uint8ClampedArray.from(res.data[0].image_data.data);
-      
+      let combined_data = res.data[0].image_data.data;
       console.log("res!", res);
+      combined_context.putImageData(combined_data, 0, 0);
     })
     .catch( err => {
       console.log("err!", err);
