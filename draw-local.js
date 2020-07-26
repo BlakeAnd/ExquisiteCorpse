@@ -40,7 +40,7 @@ function combine_canvases () {
         imageData.data[i + 3] = 0;
     } 
 }
-  console.log("image data": imageData);
+  console.log("image data:", imageData);
   ctx3.putImageData(imageData, 0, 0);
   // put the re-colored image back on the image
   // var img1 = document.getElementById("image1");
