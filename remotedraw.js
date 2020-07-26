@@ -75,7 +75,7 @@ function combine_canvases () {
       combinedImageData.data.set(combined_data);
       console.log("combined", combined_data);
       console.log("res!", res);
-      combined_context.putImageData(combined_data, 0, 0);
+      combined_context.putImageData(combinedImageData, 0, 0);
     })
     .catch( err => {
       console.log("err!", err);
