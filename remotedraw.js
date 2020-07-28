@@ -68,7 +68,7 @@ function combine_canvases () {
   let local = "http://localhost:5000";
   let url = deployed;
   axios({
-    method: 'post',
+    method: 'get',
     url: `${url}/drawings`,
     data: data
   })
