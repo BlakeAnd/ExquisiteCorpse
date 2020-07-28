@@ -66,7 +66,7 @@ function combine_canvases () {
   
   let deployed = "https://drawexquisitecorpse.herokuapp.com";
   let local = "http://localhost:5000";
-  let url = local;
+  let url = deployed;
   axios({
     method: 'post',
     url: `${url}/drawings`,
