@@ -1,10 +1,6 @@
 let got_drawing = false;
 let safety_counter = 0;
 
-while(got_drawing === false && safety_counter < 1000){
-  safety_counter += 1;
-  setTimeout(function(){ combine_canvases(); }, 3000);
-}
 
 function combine_canvases () {
   let combined_canvas = document.getElementById('combined_canvas');
@@ -69,7 +65,10 @@ if(window.addEventListener) {
     function init () {
 
 
-
+      while(got_drawing === false && safety_counter < 1000){
+        safety_counter += 1;
+        setTimeout(function(){ combine_canvases(); }, 3000);
+      }
 
       canvas = document.getElementById(`canvas`);
       // canvas2 = document.getElementById(`canvas2`);
