@@ -77,6 +77,9 @@ function combine_canvases () {
       let combined_data = Uint8ClampedArray.from(res.data[0].image_data.data);
       combinedImageData.data.set(combined_data);
       console.log("combined", combined_data);
+      if(combined_data.length === 0){
+        window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+      }
       combined_context.putImageData(combinedImageData, 0, 0);
     })
     .catch( err => {
