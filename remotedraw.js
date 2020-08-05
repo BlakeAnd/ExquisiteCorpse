@@ -36,6 +36,8 @@ else {
   // console.log(hex_val);
   // console.log(url_val);
 
+let returned_state = null;
+
 function combine_canvases () {
   let combined_canvas = document.getElementById('combined_canvas');
   let combined_context = combined_canvas.getContext('2d'); 
@@ -76,10 +78,15 @@ function combine_canvases () {
       console.log("res!", res);
       let combined_data = Uint8ClampedArray.from(res.data[0].image_data.data);
       combinedImageData.data.set(combined_data);
-      console.log("combined", combined_data);
+      console.log("combined", combined_data.length);
       if(combined_data.length === 0){
         window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+        returned_state = false;
       }
+      // while(returned_state === false && safety_counter < 1000){
+      //   safety_counter += 1;
+      //   setTimeout(function(){ combine_canvases(); }, 5000);
+      // }
       combined_context.putImageData(combinedImageData, 0, 0);
     })
     .catch( err => {

@@ -7,7 +7,7 @@ function combine_canvases () {
   let combined_context = combined_canvas.getContext('2d'); 
 
 
-  context = canvas.getContext('2d');
+  // context = canvas.getContext('2d');
 
   var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
   console.log(imageData.data.length);
@@ -65,10 +65,7 @@ if(window.addEventListener) {
     function init () {
 
 
-      while(got_drawing === false && safety_counter < 1000){
-        safety_counter += 1;
-        setTimeout(function(){ combine_canvases(); }, 3000);
-      }
+
 
       canvas = document.getElementById(`canvas`);
       // canvas2 = document.getElementById(`canvas2`);
