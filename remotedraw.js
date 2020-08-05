@@ -80,7 +80,7 @@ function combine_canvases () {
       combinedImageData.data.set(combined_data);
       console.log("combined", combined_data.length);
       if(combined_data.length === 0){
-        window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+        // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
         returned_state = false;
       }
       // while(returned_state === false && safety_counter < 1000){
