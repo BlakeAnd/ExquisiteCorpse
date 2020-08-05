@@ -46,7 +46,10 @@ function combine_canvases () {
   context = canvas.getContext('2d');
 
   var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  console.log(imageData.data.length);
+  console.log(imageData);
+  imageData = Array.from(imageData.data);
+  console.log(imageData);
+  console.log(imageData.length);
   var JSON_img_data = JSON.stringify(imageData);
   // console.log(JSON_img_data);
     // console.log(JSON_img_data);
@@ -60,7 +63,7 @@ function combine_canvases () {
   let selected_canvas = localStorage.getItem("canvas_selection");
 
   let data = {
-    img_data: Array.prototype.slice.call(imageData), 
+    img_data: imageData, 
     //above converts to clamped array to regular array, stores better on back end
     selected_canvas: selected_canvas,
     pair_id: pair_id
