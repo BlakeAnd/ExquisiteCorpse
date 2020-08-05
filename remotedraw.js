@@ -60,7 +60,8 @@ function combine_canvases () {
   let selected_canvas = localStorage.getItem("canvas_selection");
 
   let data = {
-    img_data: imageData,
+    img_data: Array.prototype.slice.call(imageData), 
+    //above converts to clamped array to regular array, stores better on back end
     selected_canvas: selected_canvas,
     pair_id: pair_id
   }
