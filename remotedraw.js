@@ -80,18 +80,23 @@ function combine_canvases () {
   })
     .then( res => {
       console.log("res!", res);
-      let combined_data = Uint8ClampedArray.from(res.data[0].image_data.data);
-      combinedImageData.data.set(combined_data);
-      console.log("combined", combined_data.length);
-      if(combined_data.length === 0){
+
+      if(res.data[0].merge_string.length === 1){
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+        setTimeout(function(){ combine_canvases(); }, 5000);
         returned_state = false;
+      }
+      else{
+        let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
+        combinedImageData.data.set(combined_data);
+        console.log("combined", combined_data.length);
+        combined_context.putImageData(combinedImageData, 0, 0);
       }
       // while(returned_state === false && safety_counter < 1000){
       //   safety_counter += 1;
       //   setTimeout(function(){ combine_canvases(); }, 5000);
       // }
-      combined_context.putImageData(combinedImageData, 0, 0);
+
     })
     .catch( err => {
       console.log("err!", err);
