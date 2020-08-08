@@ -89,19 +89,19 @@ function combine_canvases () {
         function ping () {
           safety_counter += 1;
           console.log("count", safety_counter);
-          // axios({
-          //   method: 'get',
-          //   url: `${url}/drawings`,
-          //   data: data.pair_id
-          // })
-          // .then( res => {
-          //   console.log("pinged res", res)
-          //   response_length = res.data[0].merge_string.length;
-          // })
-          // .catch( err => {
-          //   console.log("pinged err", err);
-          // })
-          if(res.data[0].merge_string.length === 2 || safety_counter > 10){
+          axios({
+            method: 'get',
+            url: `${url}/drawings`,
+            data: data.pair_id
+          })
+          .then( res => {
+            console.log("pinged res", res)
+            response_length = res.data[0].merge_string.length;
+          })
+          .catch( err => {
+            console.log("pinged err", err);
+          })
+          if(res.data[0].merge_string.length === 2 || safety_counter > 5){
             console.log("10?", safety_counter);
             clearInterval(interval);
           }
