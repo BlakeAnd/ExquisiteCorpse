@@ -84,24 +84,29 @@ function combine_canvases () {
 
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
         let safety_counter = 0;
-        while(response_length === 1 && safety_counter < 10){
+        let interval = setInterval(ping, 5000);
+
+        function ping () {
           safety_counter += 1;
-          setTimeout( function() { 
-            axios({
-              method: 'get',
-              url: `${url}/drawings`,
-              data: data.pair_id,
-              timeout: 5 //experimental 
-            })
-            .then( res => {
-              console.log("pinged res", res)
-              response_length = res.data[0].merge_string.length;
-            })
-            .catch( err => {
-              console.log("pinged err", err);
-            })
-           }, 5000);
+          console.log("count", safety_counter);
+          // axios({
+          //   method: 'get',
+          //   url: `${url}/drawings`,
+          //   data: data.pair_id
+          // })
+          // .then( res => {
+          //   console.log("pinged res", res)
+          //   response_length = res.data[0].merge_string.length;
+          // })
+          // .catch( err => {
+          //   console.log("pinged err", err);
+          // })
+          if(res.data[0].merge_string.length === 2 || safety_counter > 10){
+            console.log("10?", safety_counter);
+            clearInterval(interval);
+          }
         }
+ 
         // setTimeout(function(){ combine_canvases(); }, 5000);
         // returned_state = false;
       // else{
