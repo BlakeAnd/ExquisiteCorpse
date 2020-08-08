@@ -84,13 +84,14 @@ function combine_canvases () {
 
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
         let safety_counter = 0;
-        while(response_length === 1 && safety_counter < 100){
+        while(response_length === 1 && safety_counter < 10){
           safety_counter += 1;
-          setTimeout(function() { 
+          setTimeout( function() { 
             axios({
               method: 'get',
               url: `${url}/drawings`,
-              data: data.pair_id
+              data: data.pair_id,
+              timeout: 5 //experimental 
             })
             .then( res => {
               console.log("pinged res", res)
