@@ -101,7 +101,7 @@ function combine_canvases () {
           .catch( err => {
             console.log("pinged err", err);
           })
-          if(res.data[0].merge_string.length === 2 || safety_counter > 5){
+          if(res.data[0].merge_string.length === 2 || safety_counter > 2){
             console.log("10?", safety_counter);
             clearInterval(interval);
           }
