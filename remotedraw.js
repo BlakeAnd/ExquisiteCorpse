@@ -93,7 +93,7 @@ function combine_canvases () {
           axios({
             method: 'get',
             url: `${url}/drawings`,
-            data: pair_id
+            data: data
           })
           .then( res => {
             console.log("pinged res", res)
