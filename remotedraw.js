@@ -83,6 +83,7 @@ function combine_canvases () {
       let response_length = res.data[0].merge_string.length;
 
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+      if(response_length === 1){
         let safety_counter = 0;
         let interval = setInterval(ping, 5000);
 
@@ -97,23 +98,32 @@ function combine_canvases () {
           .then( res => {
             console.log("pinged res", res)
             response_length = res.data[0].merge_string.length;
+
+            console.log("len:", response_length);
+            if(response_length > 1){
+              console.log("10?", safety_counter);
+              let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
+              combinedImageData.data.set(combined_data);
+              console.log("combined", combined_data.length);
+              combined_context.putImageData(combinedImageData, 0, 0);
+              clearInterval(interval);
+            }
+            else if (safety_counter > 10){
+              clearInterval(interval);
+            }
           })
           .catch( err => {
             console.log("pinged err", err);
           })
-          if(res.data[0].merge_string.length === 2){
-            console.log("10?", safety_counter);
-            let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
-            combinedImageData.data.set(combined_data);
-            console.log("combined", combined_data.length);
-            combined_context.putImageData(combinedImageData, 0, 0);
-            clearInterval(interval);
-          }
-          else if (safety_counter > 10){
-            clearInterval(interval);
-          }
         }
  
+      }
+      else{
+        let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
+        combinedImageData.data.set(combined_data);
+        console.log("combined", combined_data.length);
+        combined_context.putImageData(combinedImageData, 0, 0);
+      }
         // setTimeout(function(){ combine_canvases(); }, 5000);
         // returned_state = false;
       // else{
