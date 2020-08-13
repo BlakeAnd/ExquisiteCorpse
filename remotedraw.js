@@ -92,8 +92,7 @@ function combine_canvases () {
           console.log("count", safety_counter);
           axios({
             method: 'get',
-            url: `${url}/drawings`,
-            data: data
+            url: `${url}/drawings/${pair_id}`
           })
           .then( res => {
             console.log("pinged res", res)
