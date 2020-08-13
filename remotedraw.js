@@ -87,7 +87,7 @@ function combine_canvases () {
         let interval = setInterval(ping, 5000);
 
         function ping () {
-          console.log("sent in get:", pair_id);
+          console.log("sent in get:", data);
           safety_counter += 1;
           console.log("count", safety_counter);
           axios({
