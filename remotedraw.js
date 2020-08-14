@@ -1,4 +1,5 @@
 console.log("canvas selction", localStorage.getItem("canvas_selection"));
+let join_url = null;
 
 function make_join_url() {
   let pair_id = localStorage.getItem("pair_id");
@@ -10,7 +11,7 @@ function make_join_url() {
   else {
     canvas_other = "top";
   } 
-  let join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
+  join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
   console.log("url", join_url);
 }
 
@@ -37,6 +38,20 @@ else {
   // console.log(url_val);
 
 let returned_state = null;
+ 
+function copyUrl () {
+  console.log(join_url);
+    let dummy = document.createElement("textarea");
+    // to avoid breaking orgain page when copying more words
+    // cant copy when adding below this code
+    // dummy.style.display = 'none'
+    document.body.appendChild(dummy);
+    //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+    dummy.value = join_url;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
 
 function combine_canvases () {
   let combined_canvas = document.getElementById('combined_canvas');
