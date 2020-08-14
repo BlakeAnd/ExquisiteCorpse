@@ -56,7 +56,7 @@ function combine_canvases () {
 
   //   // var ctx3 = can3.getContext('2d'); 
 
-  let combinedImageData = combined_context.getImageData(0,0, 4, 6);
+  let combinedImageData = combined_context.getImageData(0,0, combined_canvas.width, combined_canvas.height);
 
 
   let pair_id = localStorage.getItem("pair_id");
@@ -89,13 +89,14 @@ function combine_canvases () {
 
         function ping () {
           console.log("sent in get:", data);
-          safety_counter += 1;
+          
           console.log("count", safety_counter);
           axios({
             method: 'get',
             url: `${url}/drawings/${pair_id}`
           })
           .then( res => {
+            safety_counter += 1;
             console.log("pinged res", res)
             response_length = res.data[0].merge_string.length;
 
