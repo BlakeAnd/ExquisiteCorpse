@@ -1,6 +1,7 @@
 console.log("canvas selction", localStorage.getItem("canvas_selection"));
 let join_url = null;
 
+
 function make_join_url() {
   let pair_id = localStorage.getItem("pair_id");
   let canvas_selection = localStorage.getItem("canvas_selection");

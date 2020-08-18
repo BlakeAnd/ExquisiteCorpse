@@ -1,5 +1,20 @@
+// const { default: Axios } = require("axios");
+let id_array = null;
+axios({
+  method: 'get',
+  url: `${url}/drawings/${pair_id}`
+})
+.then( res => {
+  console.log(res)
+})
+.catch( err => {
+  console.log("pinged err", err);
+})
+
 localStorage.setItem("player_status", "starting")
 makeid();
+
+
 
 function selectedRandom() {
   let rand = Math.random();
