@@ -1,5 +1,8 @@
 // const { default: Axios } = require("axios");
 let id_array = null;
+let deployed = "https://drawexquisitecorpse.herokuapp.com";
+let local = "http://localhost:5000";
+let url = local;
 axios({
   method: 'get',
   url: `${url}/drawings/${pair_id}`
