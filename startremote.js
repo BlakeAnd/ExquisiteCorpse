@@ -5,7 +5,7 @@ let local = "http://localhost:5000";
 let url = local;
 axios({
   method: 'get',
-  url: `${url}/drawings/${pair_id}`
+  url: `${url}/every_canvas_id`
 })
 .then( res => {
   console.log(res)
