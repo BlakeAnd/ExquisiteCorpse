@@ -20,6 +20,17 @@ axios({
   console.log("pinged err", err);
 })
 
+axios({
+  method: 'put',
+  url: `${url}/count`
+})
+.then( res => {
+  
+})
+.catch( err => {
+  console.log("pinged err", err);
+})
+
 localStorage.setItem("player_status", "starting")
 
 
