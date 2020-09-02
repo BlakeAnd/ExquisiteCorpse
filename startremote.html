@@ -18,23 +18,45 @@
   <h3>Foldy Foldy Draw Draw</h3>
   <h3>a drawing game for friends</h3>
 
-  <h4>How to play</h4> 
-
-<ul>
-  <li>Get a computer and one friend with a computer.</li>
-  <li>You will get half the drawing</li>
-  <li>Send the link for the other half to your friend.</li>
-  <li>Create your drawings without seeing the other half.</li>
-  <li>Send your drawing in and see what you made together!</li>
-</ul>
+  
+<div class="row">
+  <div>
+  <h4>How it works!</h4> 
+  <ul>
+    <li>Get a computer and one friend with a computer.</li>
+    <li>You will get half the drawing</li>
+    <li>Send the link for the other half to your friend.</li>
+    <li>Create your drawings without seeing the other half.</li>
+    <li>Send your half of the drawing in.</li>
+    <li>See what you made together!</li>
+  </ul>
+</div>
+  <div>
+    <img id="guy" src="imgs/exquisite_blob.png" alt="doodle guy on two part canvas">
+  </div>
+</div>
 
 <p>
 First, choose your half of the drawing
 </p>
   Selection:
-  <button onclick="selectedRandom()">Random</button>
-  <button onclick="selectedTop()">Top</button>
-  <button onclick="selectedBottom()">Bottom</button>
+  <div class="row">
+    <div class="selection" onclick="selectedTop()">
+      <p>Top</p>
+      <img class="selection_img" src="imgs/exquisite_head.png" alt="poorly drawn ms paint face">
+    </div>
+
+    <div class="selection" onclick="selectedRandom()">
+      <p onclick="selectedBottom()">Bottom</p>
+      <img class="selection_img" src="imgs/exquisite_body.png" alt="poorly drawn ms paint body">
+    </div>
+
+    <div class="selection" onclick="selectedRandom()">
+      <p >Random</p>
+      <img class="selection_img" src="imgs/exquisite_mystery.png" alt="poorly drawn ms paint question mark">
+    </div>
+  </div>
+  
 </div>
   <!-- <div class="cover" id="top-cover">.</div>
   <div class="cover" id="bottom-cover">.</div> -->
