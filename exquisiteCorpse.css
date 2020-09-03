@@ -23,13 +23,13 @@
   /* position: absolute; */
 }
 
-.cover{
+/* .cover{
   background: black;
   width: 220px;
   height: 300px;
   margin: 2px;
   z-index: 9999;
-}
+} */
 #top{
   margin-top: -200px;
   /* z-index: 9999; */
@@ -63,13 +63,14 @@ h3{
 }
 
 body{
-  margin: 12px;
+  margin-top: 12px;
+  font-size: 18px;
   font-family: 'Walter Turncoat', cursive;
 }
 
-p{
+/* p{
   width: 500px;
-}
+} */
 
 #fish{
  width: 100px;
@@ -78,30 +79,59 @@ p{
 .row{
   display: flex;
   flex-direction: row;
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 .selection{
   background: white;
-  border: 2px solid black;
+  border: 2px solid cornflowerblue;
   border-radius: 10px;
   padding: 8px;
   margin: 5px;
-  width: 200px;
+  width: 140px;
 }
 .selection:hover{
-  border: 4px solid black;
-  padding: 6px;
+  border: 4px solid cornflowerblue;
+  padding: 7px;
+  margin: 4px;
 }
-
+.selection p{
+  margin:3px;
+}
 .selection img{
-  width:180px;
+  width:130px;
 }
 
-header{
-  font-family: 'Walter Turncoat', cursive;
+#guy{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+@media (max-width: 700px){
+  #guy{
+    margin-left: 5px;
+    width: 100px;
+  }
+  .selection{
+    width: 100px;
+  }
+  .selection img{
+    width: 90px;
+  }
+}
+@media (max-width: 400px){
+  #guy{
+    display: none;
+  }
+  .row{
+    flex-direction: column;
+  }
+}
 
-
+#start_content{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
