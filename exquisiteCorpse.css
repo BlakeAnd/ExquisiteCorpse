@@ -118,12 +118,18 @@ body{
     width: 90px;
   }
 }
-@media (max-width: 400px){
+@media (max-width: 450px){
   #guy{
     display: none;
   }
   .row{
     flex-direction: column;
+  }
+  .selection{
+    width: 140px;
+  }
+  .selection img{
+    width: 130px;
   }
 }
 
@@ -134,4 +140,28 @@ body{
   align-items: center;
 }
 
+#combined_canvas{
+  margin-top: -280px;
+}
+
+#neck_lines{
+  height: 30px;
+  display: flex;
+  margin-left: 210px;
+  /* flex-direction: row;
+  justify-items: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center; */
+}
+#neck_lines img{
+
+  margin-top: 6px;
+  /* padding-top: 10px; */
+  height: 30px;
+  
+}
+#neck_lines p{
+  font-size: 20px;
+}
 
