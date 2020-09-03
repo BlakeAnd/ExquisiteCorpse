@@ -49,6 +49,12 @@ button{
 h1{
   text-align: center;
   margin: 0;
+  font-size: 48px;
+}
+
+h2{
+  text-align: center;
+  margin: 0;
 }
 
 h3{
@@ -57,7 +63,8 @@ h3{
 }
 
 body{
-  margin: 50px;
+  margin: 12px;
+  font-family: 'Walter Turncoat', cursive;
 }
 
 p{
@@ -75,12 +82,26 @@ p{
 }
 
 .selection{
-  background: cornflowerblue;
-  border: none;
+  background: white;
+  border: 2px solid black;
   border-radius: 10px;
   padding: 8px;
   margin: 5px;
-  width: 20%;
+  width: 200px;
+}
+.selection:hover{
+  border: 4px solid black;
+  padding: 6px;
+}
+
+.selection img{
+  width:180px;
+}
+
+header{
+  font-family: 'Walter Turncoat', cursive;
+
+
 }
 
 
