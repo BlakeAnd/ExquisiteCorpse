@@ -128,10 +128,10 @@ body{
   align-items: center;
 }
 
-#combined_canvas{
+/* #combined_canvas{
   margin-top: -280px;
   display: none;
-}
+} */
 
 #neck_lines{
   height: 30px;
