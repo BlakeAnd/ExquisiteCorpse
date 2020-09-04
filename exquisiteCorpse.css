@@ -1,3 +1,4 @@
+
 #canvas-wrap{
   display: flex;
   flex-direction: row;
@@ -8,20 +9,7 @@
   z-index: -1;
   /* position: absolute; */
 }
-#canvas2{
-  /* visibility: hidden; */
-  border: 2px solid blue;
-  border-radius: 6px;
-  z-index: -1;
-  /* position: absolute; */
-}
-#canvas3{
-  display: none;
-  border: 2px solid blue;
-  border-radius: 6px;
-  z-index: -1;
-  /* position: absolute; */
-}
+
 
 /* .cover{
   background: black;
@@ -142,6 +130,7 @@ body{
 
 #combined_canvas{
   margin-top: -280px;
+  display: none;
 }
 
 #neck_lines{
