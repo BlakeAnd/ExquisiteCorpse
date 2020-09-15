@@ -128,15 +128,16 @@ body{
   align-items: center;
 }
 
-/* #combined_canvas{
-  margin-top: -280px;
+#combined_canvas{
+  margin-top: -180px; 
   display: none;
-} */
+}
 
 #neck_lines{
   height: 30px;
   display: flex;
   margin-left: 210px;
+  padding: 10px;
   /* flex-direction: row;
   justify-items: center;
   justify-self: center;
