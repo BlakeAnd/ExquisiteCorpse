@@ -1,10 +1,22 @@
 console.log("canvas selction", localStorage.getItem("canvas_selection"));
 let join_url = null;
 
+function arrow_styling(selection){
+  if(selection === "bottom"){
+    // let arrow = 
+    document.getElementById("below_canv").style.display = "none";
+  }
+  else if(selection === "top"){
+    // let arrow = 
+    document.getElementById("above_canv").arrow.style.display = "none";
+  }
+  else{console.log("error, could not find canvas selection")}
+}
 
 function make_join_url() {
   let pair_id = localStorage.getItem("pair_id");
   let canvas_selection = localStorage.getItem("canvas_selection");
+  arrow_styling(canvas_selection);
   let canvas_other = "";
   if(canvas_selection === "top"){
     canvas_other = "bottom";
