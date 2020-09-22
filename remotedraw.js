@@ -132,6 +132,8 @@ function combine_canvases () {
             if(response_length > 1){
               // document.getElementById("combined_canvas").style.display = "inline";
               console.log("10?", safety_counter);
+              document.getElementById("combined_canvas").style.display = "block";
+
               let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
               combinedImageData.data.set(combined_data);
               console.log("combined", combined_data.length);
@@ -150,6 +152,7 @@ function combine_canvases () {
       }
       else{
         // document.getElementById("combined_canvas").style.display = "inline";
+        document.getElementById("combined_canvas").style.display = "block";
         let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
         combinedImageData.data.set(combined_data);
         console.log("combined", combined_data.length);
