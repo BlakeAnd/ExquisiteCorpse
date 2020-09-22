@@ -4,11 +4,11 @@ let join_url = null;
 function arrow_styling(selection){
   if(selection === "bottom"){
     // let arrow = 
-    document.getElementById("below_canv").style.display = "none";
+    document.getElementById("above_canv").style.display = "flex";
   }
   else if(selection === "top"){
     // let arrow = 
-    document.getElementById("above_canv").style.display = "none";
+    document.getElementById("below_canv").style.display = "flex";
   }
   else{console.log("error, could not find canvas selection")}
 }
