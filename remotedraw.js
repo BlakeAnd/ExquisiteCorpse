@@ -8,7 +8,7 @@ function arrow_styling(selection){
   }
   else if(selection === "top"){
     // let arrow = 
-    document.getElementById("above_canv").arrow.style.display = "none";
+    document.getElementById("above_canv").style.display = "none";
   }
   else{console.log("error, could not find canvas selection")}
 }
