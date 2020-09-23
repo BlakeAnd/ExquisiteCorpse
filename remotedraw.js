@@ -134,6 +134,9 @@ function combine_canvases () {
               console.log("10?", safety_counter);
               document.getElementById("combined_canvas").style.display = "block";
               document.getElementById("canvas").style.display = "none";
+              document.getElementById("above_canv").style.display = "none";
+              document.getElementById("below_canv").style.display = "none";
+
 
               let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
               combinedImageData.data.set(combined_data);
@@ -155,6 +158,8 @@ function combine_canvases () {
         // document.getElementById("combined_canvas").style.display = "inline";
         document.getElementById("combined_canvas").style.display = "block";
         document.getElementById("canvas").style.display = "none";
+        document.getElementById("above_canv").style.display = "none";
+        document.getElementById("below_canv").style.display = "none";
         let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
         combinedImageData.data.set(combined_data);
         console.log("combined", combined_data.length);

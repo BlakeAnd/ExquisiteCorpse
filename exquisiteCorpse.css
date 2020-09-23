@@ -133,7 +133,7 @@ body{
 }
 
 #combined_canvas{
-  margin-top: -180px; 
+  /* margin-top: -180px;  */
   display: none;
 }
 
