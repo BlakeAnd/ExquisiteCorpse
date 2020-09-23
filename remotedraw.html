@@ -41,8 +41,14 @@
   <!-- <script src="remotedraw.js"></script> -->
   <div>
   <!-- <p id="welcome"> Welcome to Exquisite Corpse</p> -->
-  <button class="selection" onclick="combine_canvases()">combine</button>
-  <button class="selection" onclick="copyUrl()">get link</button>
+  <div id="doing_drawing">
+    <button class="selection" onclick="combine_canvases()">combine</button>
+    <button class="selection" onclick="copyUrl()">get link</button>
+  </div>
+  <div id="done_drawing">
+    <button class="selection" onclick="save_image()">save</button>
+    <button class="selection" onclick="start_new()">start new</button>
+  </div>
   <!-- <button onclic k="tops()">top</button>
   <button onclick="bots()">bot</button> -->
   </div>

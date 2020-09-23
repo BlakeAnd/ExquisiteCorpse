@@ -66,6 +66,30 @@ function copyUrl () {
     document.body.removeChild(dummy);
 }
 
+function start_new() {
+  window.location.assign(`https://drawexquisitecorpse.netlify.app/startremote`);
+}
+
+function download_image() {
+  var canvas = document.getElementById("combined_canvas");
+  image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+  var link = document.createElement('a');
+  link.download = "exquisite_corpse.png";
+  link.href = image;
+  link.click();
+}
+
+function combined_styling () {
+  document.getElementById("combined_canvas").style.display = "block";
+  document.getElementById("canvas").style.display = "none";
+
+  document.getElementById("above_canv").style.display = "none";
+  document.getElementById("below_canv").style.display = "none";
+
+  document.getElementById("doing_drawing").style.display = "none";
+  document.getElementById("done_drawing").style.display = "block";
+}
+
 function combine_canvases () {
   let combined_canvas = document.getElementById('combined_canvas');
   let combined_context = combined_canvas.getContext('2d'); 
@@ -132,10 +156,7 @@ function combine_canvases () {
             if(response_length > 1){
               // document.getElementById("combined_canvas").style.display = "inline";
               console.log("10?", safety_counter);
-              document.getElementById("combined_canvas").style.display = "block";
-              document.getElementById("canvas").style.display = "none";
-              document.getElementById("above_canv").style.display = "none";
-              document.getElementById("below_canv").style.display = "none";
+              combined_styling();
 
 
               let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
@@ -156,10 +177,7 @@ function combine_canvases () {
       }
       else{
         // document.getElementById("combined_canvas").style.display = "inline";
-        document.getElementById("combined_canvas").style.display = "block";
-        document.getElementById("canvas").style.display = "none";
-        document.getElementById("above_canv").style.display = "none";
-        document.getElementById("below_canv").style.display = "none";
+        combined_styling();
         let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
         combinedImageData.data.set(combined_data);
         console.log("combined", combined_data.length);
