@@ -5,7 +5,7 @@
 }
 #canvas{
   border: 2px solid black;
-  border-radius: 6px;
+  border-radius: 3px;
   z-index: -1;
   /* position: absolute; */
 }
@@ -134,6 +134,9 @@ body{
 
 #combined_canvas{
   /* margin-top: -180px;  */
+  border: 2px solid black;
+  border: 2px solid black;
+  border-radius: 3px;
   display: none;
 }
 
