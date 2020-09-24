@@ -175,3 +175,7 @@ body{
 #done_drawing{
   display: none;
 }
+
+#submitted_message{
+  display: none;
+}

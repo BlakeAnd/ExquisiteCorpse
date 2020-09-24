@@ -5,7 +5,7 @@ arrow_styling();
 
 function arrow_styling(){
   let selection = localStorage.getItem("canvas_selection");
-  
+   
   if(selection === "bottom"){
     // let arrow = 
     document.getElementById("above_canv").style.display = "flex";
@@ -61,6 +61,11 @@ function copyUrl () {
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code
     // dummy.style.display = 'none'
+    document.getElementById("copy").innerHTML = "link copied!"
+    setTimeout(function(){ 
+      document.getElementById("copy").innerHTML = "send link to a friend" 
+    }, 2000);
+
     document.body.appendChild(dummy);
     //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
     dummy.value = join_url;
@@ -141,7 +146,8 @@ function combine_canvases () {
       if(response_length === 1){
         let safety_counter = 0;
         let interval = setInterval(ping, 5000);
-
+        document.getElementById("submit_button").style.display = "none";
+        document.getElementById("submitted_message").style.display = "inline";
         function ping () {
           console.log("sent in get:", data);
           
