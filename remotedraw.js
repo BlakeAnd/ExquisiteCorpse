@@ -1,7 +1,11 @@
 console.log("canvas selction", localStorage.getItem("canvas_selection"));
 let join_url = null;
 
-function arrow_styling(selection){
+arrow_styling();
+
+function arrow_styling(){
+  let selection = localStorage.getItem("canvas_selection");
+  
   if(selection === "bottom"){
     // let arrow = 
     document.getElementById("above_canv").style.display = "flex";
@@ -16,7 +20,6 @@ function arrow_styling(selection){
 function make_join_url() {
   let pair_id = localStorage.getItem("pair_id");
   let canvas_selection = localStorage.getItem("canvas_selection");
-  arrow_styling(canvas_selection);
   let canvas_other = "";
   if(canvas_selection === "top"){
     canvas_other = "bottom";
