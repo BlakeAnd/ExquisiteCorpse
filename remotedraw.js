@@ -63,7 +63,7 @@ function copyUrl () {
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code
     // dummy.style.display = 'none'
-    document.getElementsByClassName("copied_message").innerHTML = "link copied!"
+    document.getElementById("copied_message").innerHTML = "link copied!"
     setTimeout(function(){ 
       document.getElementById("copied_message").innerHTML = "send link to a friend" 
     }, 2000);
