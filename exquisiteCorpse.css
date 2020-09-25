@@ -180,6 +180,10 @@ body{
   display: none;
 }
 
-.copys{
+#copy_btn{
+  display: none;
+}
+
+#copied_message{
   display: none;
 }
