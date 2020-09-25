@@ -33,6 +33,8 @@ function make_join_url() {
 
 if (localStorage.getItem("player_status") === "starting"){
   console.log("starting");
+  document.getElementById("copy_btn").style.display = "inline";
+  document.getElementById("copied_message").style.display = "inline";
   make_join_url();
 } 
 else {
@@ -61,9 +63,9 @@ function copyUrl () {
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code
     // dummy.style.display = 'none'
-    document.getElementById("copy").innerHTML = "link copied!"
+    document.getElementsByClassName("copied_message").innerHTML = "link copied!"
     setTimeout(function(){ 
-      document.getElementById("copy").innerHTML = "send link to a friend" 
+      document.getElementById("copied_message").innerHTML = "send link to a friend" 
     }, 2000);
 
     document.body.appendChild(dummy);
