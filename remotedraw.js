@@ -343,25 +343,6 @@ function combine_canvases () {
           func(ev);
         }
       }
-
-      // function ev_canvas2 (ev) {
-      //   if (ev.layerX || ev.layerX == 0) { // Firefox
-      //     ev._x = ev.layerX;
-      //     ev._y = ev.layerY;
-      //   } else if (ev.offsetX || ev.offsetX == 0) { // Opera
-      //     ev._x = ev.offsetX;
-      //     ev._y = ev.offsetY;
-      //   }
-    
-      //   // Call the event handler of the tool.
-      //   // var func = tool[ev.type]; 
-      //   var func2 = tool2[ev.type]; 
-      //   if (func2) {
-      //     // console.log(ev.y);
-      //     func2(ev);
-      //   }
-      // }
-
       init();
       // initb();
  
