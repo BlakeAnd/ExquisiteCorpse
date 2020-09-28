@@ -134,10 +134,10 @@ function combine_canvases () {
   
   let deployed = "https://drawexquisitecorpse.herokuapp.com";
   let local = "http://localhost:5000";
-  let url = local;
+  let backend = deployed;
   axios({
     method: 'post',
-    url: `${url}/drawings`,
+    backend: `${backend}/drawings`,
     data: data
   })
     .then( res => {
@@ -242,8 +242,8 @@ function combine_canvases () {
           alert('Error: failed to getContext!');
           return;
         }
-
-        context.strokeStyle = "#df4b26";
+        let color = "#000000"
+        context.strokeStyle = color;
         context.lineJoin = "round";
         context.lineWidth = 5;  
         if(localStorage.getItem("canvas_selection") == "top" ){
@@ -279,7 +279,7 @@ function combine_canvases () {
 
         canvas.addEventListener('pointerdown',  ev_canvas, false);
         canvas.addEventListener('pointermove',   ev_canvas, false);
-        canvas.addEventListener('pointerup',   ev_canvas, false);
+        window.addEventListener('pointerup',   ev_canvas, false);
         
       }
     
