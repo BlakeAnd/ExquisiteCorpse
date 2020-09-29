@@ -133,7 +133,7 @@ function combine_canvases () {
   console.log("data sent:", data)
   let deployed = "https://drawexquisitecorpse.herokuapp.com";
   let local = "http://localhost:5000";
-  let backend = local;
+  let backend = deployed;
   axios({
     method: 'post',
     url: `${backend}/drawings`,
