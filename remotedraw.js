@@ -131,13 +131,12 @@ function combine_canvases () {
     pair_id: pair_id
   }
   console.log("data sent:", data)
-  
   let deployed = "https://drawexquisitecorpse.herokuapp.com";
   let local = "http://localhost:5000";
   let backend = deployed;
   axios({
     method: 'post',
-    backend: `${backend}/drawings`,
+    url: `${backend}/drawings`,
     data: data
   })
     .then( res => {
@@ -156,7 +155,7 @@ function combine_canvases () {
           console.log("count", safety_counter);
           axios({
             method: 'get',
-            backend: `${backend}/drawings/${pair_id}`
+            url: `${backend}/drawings/${pair_id}`
           })
           .then( res => {
             safety_counter += 1;
