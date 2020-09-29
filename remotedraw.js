@@ -156,7 +156,7 @@ function combine_canvases () {
           console.log("count", safety_counter);
           axios({
             method: 'get',
-            url: `${url}/drawings/${pair_id}`
+            backend: `${backend}/drawings/${pair_id}`
           })
           .then( res => {
             safety_counter += 1;
