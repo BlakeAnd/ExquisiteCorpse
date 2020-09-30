@@ -2,10 +2,10 @@
 let id_obj = {};
 let deployed = "https://drawexquisitecorpse.herokuapp.com";
 let local = "http://localhost:5000";
-let url = local;
+let backend = deployed;
 axios({
   method: 'get',
-  url: `${url}/every_canvas_id`
+  url: `${backend}/every_canvas_id`
 })
 .then( res => {
   console.log(res) 
@@ -22,7 +22,7 @@ axios({
 
 axios({
   method: 'put',
-  url: `${url}/count`
+  url: `${backend}/count`
 })
 .then( res => {
   
