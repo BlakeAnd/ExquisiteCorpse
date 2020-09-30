@@ -2,7 +2,9 @@
 let id_obj = {};
 let deployed = "https://drawexquisitecorpse.herokuapp.com";
 let local = "http://localhost:5000";
-let backend = deployed;
+let backend = local;
+let collision_string = "collision";
+let start_string = "visit_start"
 axios({
   method: 'get',
   url: `${backend}/every_canvas_id`
@@ -22,14 +24,27 @@ axios({
 
 axios({
   method: 'put',
-  url: `${backend}/count`
+  url: `${backend}/count/${start_string}`
 })
 .then( res => {
-  
+
 })
 .catch( err => {
   console.log("pinged err", err);
 })
+
+function collision_count () { //sends call to backend to update based on fact that there was an id collision/duplicate
+  axios({
+    method: 'put',
+    url: `${backend}/count/${collision_string}`
+  })
+  .then( res => {
+    
+  })
+  .catch( err => {
+    console.log("pinged err", err);
+  })
+}
 
 localStorage.setItem("player_status", "starting")
 
@@ -61,6 +76,9 @@ function selectedBottom() {
 let safety_counter = 0;
 function make_id() {
   safety_counter ++;
+  if(safety_counter > 1){
+    collision_count();
+  }
   let len = 6;
   let text = "";
   let char_list = "abcdefghijklmnopqrstuvwxyz";
