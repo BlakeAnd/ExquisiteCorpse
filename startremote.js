@@ -2,7 +2,7 @@
 let id_obj = {};
 let deployed = "https://drawexquisitecorpse.herokuapp.com";
 let local = "http://localhost:5000";
-let backend = local;
+let backend = deployed;
 let collision_string = "collision";
 let start_string = "visit_start"
 axios({
