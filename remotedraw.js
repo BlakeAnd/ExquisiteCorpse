@@ -63,10 +63,10 @@ function copyUrl () {
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code
     // dummy.style.display = 'none'
-    document.getElementById("copied_message").innerHTML = "link copied!"
+    document.getElementById("copied_message").innerHTML = "copied!"
     setTimeout(function(){ 
       document.getElementById("copied_message").innerHTML = "send link to a friend" 
-    }, 2000);
+    }, 1600);
 
     document.body.appendChild(dummy);
     //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
@@ -98,6 +98,7 @@ function combined_styling () {
 
   document.getElementById("doing_drawing").style.display = "none";
   document.getElementById("download_img").style.display = "inline";
+  document.getElementById("start_new").innerHTML = "new drawing";
 }
 
 function combine_canvases () {
