@@ -22,16 +22,16 @@ axios({
   console.log("pinged err", err);
 })
 
-axios({
-  method: 'put',
-  url: `${backend}/count/${start_string}`
-})
-.then( res => {
+// axios({
+//   method: 'put',
+//   url: `${backend}/count/${start_string}`
+// })
+// .then( res => {
 
-})
-.catch( err => {
-  console.log("pinged err", err);
-})
+// })
+// .catch( err => {
+//   console.log("pinged err", err);
+// })
 
 function collision_count () { //sends call to backend to update based on fact that there was an id collision/duplicate
   axios({
@@ -77,7 +77,7 @@ let safety_counter = 0;
 function make_id() {
   safety_counter ++;
   if(safety_counter > 1){
-    collision_count();
+    // collision_count();
   }
   let len = 6;
   let text = "";

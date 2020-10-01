@@ -97,7 +97,7 @@ function combined_styling () {
   document.getElementById("below_canv").style.display = "none";
 
   document.getElementById("doing_drawing").style.display = "none";
-  document.getElementById("done_drawing").style.display = "block";
+  document.getElementById("download_img").style.display = "inline";
 }
 
 function combine_canvases () {

@@ -207,9 +207,9 @@ button:active{
   margin-top: 16px;
 }
 
-#done_drawing{
+/* #done_drawing{
   display: none;
-}
+} */
 
 #submitted_message{
   display: none;
@@ -233,4 +233,8 @@ ul{
 }
 h3{
   font-size: 1.3rem;
+}
+
+#download_img{
+  display: none;
 }
