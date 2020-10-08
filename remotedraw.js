@@ -1,4 +1,4 @@
-console.log("canvas selction", localStorage.getItem("canvas_selection"));
+// console.log("canvas selction", localStorage.getItem("canvas_selection"));
 let join_url = null;
 
 arrow_styling();
@@ -135,6 +135,7 @@ function combine_canvases () {
   let deployed = "https://drawexquisitecorpse.herokuapp.com";
   let local = "http://localhost:5000";
   let backend = deployed;
+
   axios({
     method: 'post',
     url: `${backend}/drawings`,
@@ -145,6 +146,10 @@ function combine_canvases () {
       let response_length = res.data[0].merge_string.length;
 
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
+      let selection = localStorage.getItem("canvas_selection")
+      if(response_length === 1 && selection === "top"){
+        setTimeout(combine_canvases, 8000);
+      }
       if(response_length === 1){
         let safety_counter = 0;
         let interval = setInterval(ping, 5000);
@@ -166,7 +171,7 @@ function combine_canvases () {
             console.log("len:", response_length);
             if(response_length > 1){
               // document.getElementById("combined_canvas").style.display = "inline";
-              console.log("10?", safety_counter);
+              // console.log("10?", safety_counter);
               combined_styling();
 
 
@@ -176,7 +181,8 @@ function combine_canvases () {
               combined_context.putImageData(combinedImageData, 0, 0);
               clearInterval(interval);
             }
-            else if (safety_counter > 10){
+            else if (safety_counter > 1000){
+              alert("No response received for other half of drawing. Timed out.");
               clearInterval(interval);
             }
           })
