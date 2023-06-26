@@ -11,14 +11,14 @@ let deployed_redirect = "https://drawexquisitecorpse.netlify.com/remotedraw"
 let dev_redirect = "file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html"
 
 //change dev/prod here
-let is_dev = false;
+let is_dev = true;
 
 let backend = deployed_api;
 let redirect = deployed_redirect;
 
 if(is_dev){
   backend = dev_api;
-  redirect = dev_redirect
+  // redirect = dev_redirect
 }
 
 
@@ -81,13 +81,13 @@ function selectedRandom() {
 function selectedTop() {
   // canvas_selection = "top";
   localStorage.setItem("canvas_selection", "top")
-  window.location.assign(`file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html`);
+  window.location.assign(`${redirect}`);
 }
 
 function selectedBottom() {
   // canvas_selection = "bottom";
   localStorage.setItem("canvas_selection", "bottom")
-  window.location.assign(`file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html`);
+  window.location.assign(`${redirect}`);
   // https://drawexquisitecorpse.netlify.com/remotedraw
   // file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html
 }
