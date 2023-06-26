@@ -9,8 +9,9 @@ if(is_dev){ backend = local;}
 
 let join_url = null;
 
-
+console.log("hmmmmm")
 let selection = localStorage.getItem("canvas_selection");
+console.log("aa", localStorage.getItem("pair_id"))
 let id = localStorage.getItem("pair_id");
 let pair_id =  id + selection;
 let other_id = ""
