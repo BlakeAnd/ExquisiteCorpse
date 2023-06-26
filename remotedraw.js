@@ -1,5 +1,5 @@
 // console.log("canvas selction", localStorage.getItem("canvas_selection"));
-let is_dev = true;
+let is_dev = false;
 
 let deployed = "https://drawexquisitecorpse.herokuapp.com";
 let local = "http://localhost:3000";
