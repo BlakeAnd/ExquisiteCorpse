@@ -159,25 +159,17 @@ function combine_canvases () {
   })
     .then( res => {
       console.log("res!", res);
-      let response_length = res.data[0].merge_string.length;
+      let api_response = res.data;
 
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
       let selection = localStorage.getItem("canvas_selection")
-      if(response_length === 1 && selection === "top"){
-        setTimeout(combine_canvases, 8000);
-      }
-      if(response_length === 1){
+      if(api_response === "drawing added!"){
         let safety_counter = 0;
         ping();
         let interval = setInterval(ping, 5000);
         document.getElementById("submit_button").style.display = "none";
         document.getElementById("submitted_message").style.display = "inline";
 
-        // console.log("agagaga", selections)
-        // let add_on = "top"
-        // if(selected_canvas === "top"){
-        //   add_on = "bottom"
-        // }
         function ping () {
           console.log("sent in get:", data);
           
