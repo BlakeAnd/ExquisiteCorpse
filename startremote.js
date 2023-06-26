@@ -1,10 +1,27 @@
 // const { default: Axios } = require("axios");
+
 let id_obj = {};
-let deployed = "https://drawexquisitecorpse.herokuapp.com";
-let local = "http://localhost:5000";
-let backend = deployed;
 let collision_string = "collision";
 let start_string = "visit_start"
+
+let deployed_api = "https://drawexquisitecorpse.herokuapp.com";
+let dev_api = "http://localhost:3000";
+
+let deployed_redirect = "https://drawexquisitecorpse.netlify.com/remotedraw"
+let dev_redirect = "file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html"
+
+//change dev/prod here
+let is_dev = true;
+
+let backend = deployed_api;
+let redirect = deployed_redirect;
+
+if(is_dev){
+  backend = dev_api;
+  redirect = dev_redirect
+}
+
+
 axios({
   method: 'get',
   url: `${backend}/every_canvas_id`
@@ -16,7 +33,7 @@ axios({
     let current_id = id_arr[i].drawing_canvas;
     id_obj[current_id] =  true;
   }
-  make_id();
+  make_id(); 
 })
 .catch( err => {
   console.log("pinged err", err);
@@ -64,13 +81,15 @@ function selectedRandom() {
 function selectedTop() {
   // canvas_selection = "top";
   localStorage.setItem("canvas_selection", "top")
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
+  window.location.assign(`file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html`);
 }
 
 function selectedBottom() {
   // canvas_selection = "bottom";
   localStorage.setItem("canvas_selection", "bottom")
-  window.location.assign(`https://drawexquisitecorpse.netlify.com/remotedraw`);
+  window.location.assign(`file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html`);
+  // https://drawexquisitecorpse.netlify.com/remotedraw
+  // file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html
 }
 
 let safety_counter = 0;
@@ -88,7 +107,7 @@ function make_id() {
   if(id_obj[text] === true && safety_counter < 1000){
     make_id();
   }
-  console.log(text);
+  console.log("id to set", text);
   localStorage.setItem("pair_id", text);
 }
 

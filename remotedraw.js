@@ -1,10 +1,27 @@
 // console.log("canvas selction", localStorage.getItem("canvas_selection"));
+let is_dev = true;
+
+let deployed = "https://drawexquisitecorpse.herokuapp.com";
+let local = "http://localhost:3000";
+let backend = deployed;
+if(is_dev){ backend = local;}
+
+
 let join_url = null;
+
+
+let selection = localStorage.getItem("canvas_selection");
+let id = localStorage.getItem("pair_id");
+let pair_id =  id + selection;
+let other_id = ""
+
+if(selection === "top"){ other_id = id + "bottom" }
+else{ other_id = id + "top"}
+
 
 arrow_styling();
 
 function arrow_styling(){
-  let selection = localStorage.getItem("canvas_selection");
    
   if(selection === "bottom"){
     // let arrow = 
@@ -18,7 +35,7 @@ function arrow_styling(){
 }
 
 function make_join_url() {
-  let pair_id = localStorage.getItem("pair_id");
+  // let pair_id = localStorage.getItem("pair_id");
   let canvas_selection = localStorage.getItem("canvas_selection");
   let canvas_other = "";
   if(canvas_selection === "top"){
@@ -27,7 +44,7 @@ function make_join_url() {
   else {
     canvas_other = "top";
   } 
-  join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${pair_id}&${canvas_other}`;
+  join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${id}&${canvas_other}`;
   console.log("url", join_url);
 }
 
@@ -58,7 +75,7 @@ else {
 let returned_state = null;
  
 function copyUrl () {
-  console.log(join_url);
+    console.log("url", join_url);
     let dummy = document.createElement("textarea");
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code
@@ -122,8 +139,9 @@ function combine_canvases () {
   let combinedImageData = combined_context.getImageData(0,0, combined_canvas.width, combined_canvas.height);
 
 
-  let pair_id = localStorage.getItem("pair_id");
-  let selected_canvas = localStorage.getItem("canvas_selection");
+  // let pair_id = localStorage.getItem("pair_id");
+  let selected_canvas = selection;
+  // localStorage.getItem("canvas_selection");
 
   let data = {
     img_data: imageData, 
@@ -131,10 +149,7 @@ function combine_canvases () {
     selected_canvas: selected_canvas,
     pair_id: pair_id
   }
-  console.log("data sent:", data)
-  let deployed = "https://drawexquisitecorpse.herokuapp.com";
-  let local = "http://localhost:5000";
-  let backend = deployed;
+  console.log("data sent:", data, pair_id)
 
   axios({
     method: 'post',
@@ -152,34 +167,51 @@ function combine_canvases () {
       }
       if(response_length === 1){
         let safety_counter = 0;
+        ping();
         let interval = setInterval(ping, 5000);
         document.getElementById("submit_button").style.display = "none";
         document.getElementById("submitted_message").style.display = "inline";
+
+        // console.log("agagaga", selections)
+        // let add_on = "top"
+        // if(selected_canvas === "top"){
+        //   add_on = "bottom"
+        // }
         function ping () {
           console.log("sent in get:", data);
           
           console.log("count", safety_counter);
           axios({
             method: 'get',
-            url: `${backend}/drawings/${pair_id}`
+            url: `${backend}/drawings/${other_id}`
           })
           .then( res => {
             safety_counter += 1;
             console.log("pinged res", res)
-            response_length = res.data[0].merge_string.length;
+            response_length = res.data[0].length;
 
             console.log("len:", response_length);
             if(response_length > 1){
               // document.getElementById("combined_canvas").style.display = "inline";
               // console.log("10?", safety_counter);
               combined_styling();
+              axios({
+                method: 'get',
+                url: `${backend}/combined/${id}`
+              })
+              .then( res => {
+
+              })
+              .catch( err => {
+                console.log("pinged err", err);
+              })
 
 
-              let combined_data = Uint8ClampedArray.from(res.data[0].image_data);
-              combinedImageData.data.set(combined_data);
-              console.log("combined", combined_data.length);
-              combined_context.putImageData(combinedImageData, 0, 0);
-              clearInterval(interval);
+              let return_data = Uint8ClampedArray.from(res.data[0].image_data);
+              // combinedImageData.data.set(combined_data);
+              // console.log("combined", combined_data.length);
+              // combined_context.putImageData(combinedImageData, 0, 0);
+              // clearInterval(interval);
             }
             else if (safety_counter > 1000){
               alert("No response received for other half of drawing. Timed out.");
