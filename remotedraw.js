@@ -202,16 +202,17 @@ function combine_canvases () {
               // document.getElementById("combined_canvas").style.display = "inline";
               // console.log("10?", safety_counter);
               combined_styling();
-              // axios({
-              //   method: 'get',
-              //   url: `${backend}/combined/${id}`
-              // })
-              // .then( res => {
-
-              // })
-              // .catch( err => {
-              //   console.log("pinged err", err);
-              // })
+              console.log("sent id", id)
+              axios({
+                method: 'get',
+                url: `${backend}/combined/${id}`
+              })
+              .then( resz => {
+                console.log("api combined response", resz)
+              })
+              .catch( err => {
+                console.log("pinged err", err);
+              })
 
 
               let return_data = Uint8ClampedArray.from(res.data[0].image_data);
