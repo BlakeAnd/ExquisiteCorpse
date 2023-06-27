@@ -181,7 +181,7 @@ function combine_canvases () {
           .then( res => {
             safety_counter += 1;
             console.log("pinged res", res)
-            response_length = res.data[0].length;
+            response_length = res.data.length;
 
             console.log("len:", response_length);
             if(response_length > 1){
