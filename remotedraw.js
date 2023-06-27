@@ -11,11 +11,11 @@ let start_dev = "D:\\Blake\\Documents\\Moved Docs\\Git\\ExquisiteCorpseProject\\
 let start_deployed = "https://drawexquisitecorpse.netlify.app/startremote"
 
 let backend = backend_deployed;
-let join_url = join_deployed;
+let base_join_url = join_deployed;
 let start_url = start_deployed;
 if(is_dev){ 
   // start_url = start_dev;
-  // join_url = join_dev;
+  // base_join_url = join_dev;
   backend = backend_dev;
 }
 
@@ -59,7 +59,7 @@ function make_join_url() {
   else {
     canvas_other = "top";
   } 
-  full_join_url = `${join_url}?${id}&${canvas_other}`;
+  join_url = `${base_join_url}?${id}&${canvas_other}`;
   console.log("url", join_url);
 }
 
