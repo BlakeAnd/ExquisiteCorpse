@@ -384,13 +384,16 @@ getCombined = () => {
       // The general-purpose event handler. This function just determines the mouse 
       // position relative to the canvas element.
       function ev_canvas (ev) {
-        if (ev.layerX || ev.layerX == 0) { // Firefox
-          ev._x = ev.layerX;
-          ev._y = ev.layerY;
-        } else if (ev.offsetX || ev.offsetX == 0) { // Opera
-          ev._x = ev.offsetX;
-          ev._y = ev.offsetY;
-        }
+        // if (ev.layerX || ev.layerX == 0) { // Firefox
+        //   ev._x = ev.layerX;
+        //   ev._y = ev.layerY;
+        // } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+        //   ev._x = ev.offsetX;
+        //   ev._y = ev.offsetY;
+        // }
+        var rect = canvas.getBoundingClientRect();
+        ev._x = ev.clientX - rect.left;
+        ev._y = ev.clientY - rect.top;
     
         // Call the event handler of the tool.
         var func = tool[ev.type];
