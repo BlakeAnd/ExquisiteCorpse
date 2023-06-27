@@ -1,17 +1,31 @@
 // console.log("canvas selction", localStorage.getItem("canvas_selection"));
 let is_dev = true;
 
-let deployed = "https://drawexquisitecorpse.herokuapp.com";
-let local = "http://localhost:3000";
-let backend = deployed;
-if(is_dev){ backend = local;}
+let backend_deployed = "https://drawexquisitecorpse.herokuapp.com";
+let backend_dev = "http://localhost:3000";
+
+let join_dev = "D:\\Blake\\Documents\\Moved Docs\\Git\\ExquisiteCorpseProject\\ExquisiteCorpse\\joinremote.html";
+let join_deployed = "https://drawexquisitecorpse.netlify.com/joinremote";
+
+let start_dev = "D:\\Blake\\Documents\\Moved Docs\\Git\\ExquisiteCorpseProject\\ExquisiteCorpse\\startremote.html"
+let start_deployed = "https://drawexquisitecorpse.netlify.app/startremote"
+
+let backend = backend_deployed;
+let join_url = join_deployed;
+let start_url = start_deployed;
+if(is_dev){ 
+  // start_url = start_dev;
+  // join_url = join_dev;
+  backend = backend_dev;
+}
 
 
-let join_url = null;
+// let join_url = null;
 
 console.log("hmmmmm")
 let selection = localStorage.getItem("canvas_selection");
 console.log("aa", localStorage.getItem("pair_id"))
+
 let id = localStorage.getItem("pair_id");
 let pair_id =  id + selection;
 let other_id = ""
@@ -45,7 +59,7 @@ function make_join_url() {
   else {
     canvas_other = "top";
   } 
-  join_url = `https://drawexquisitecorpse.netlify.com/joinremote?${id}&${canvas_other}`;
+  full_join_url = `${join_url}?${id}&${canvas_other}`;
   console.log("url", join_url);
 }
 
@@ -95,7 +109,7 @@ function copyUrl () {
 }
 
 function start_new() {
-  window.location.assign(`https://drawexquisitecorpse.netlify.app/startremote`);
+  window.location.assign(`${start_url}`);
 }
 
 function download_image() {
