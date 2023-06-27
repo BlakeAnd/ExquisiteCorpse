@@ -166,6 +166,23 @@ function combine_canvases () {
   }
   console.log("data sent:", data, pair_id)
 
+getCombined = () => {
+  console.log("sent id", id)
+  axios({
+    method: 'get',
+    url: `${backend}/combined/${id}`
+  })
+  .then( resz => {
+    console.log("api combined response", resz)
+  })
+  .catch( err => {
+    console.log("pinged err", err);
+  })
+  // let return_data = Uint8ClampedArray.from(resz.data[0].image_data);
+
+}
+
+
   axios({
     method: 'post',
     url: `${backend}/drawings`,
@@ -198,28 +215,17 @@ function combine_canvases () {
             response_length = res.data.length;
 
             console.log("len:", response_length);
-            if(response_length > 1){
+            if(response_length > 0){
               // document.getElementById("combined_canvas").style.display = "inline";
               // console.log("10?", safety_counter);
-              combined_styling();
-              console.log("sent id", id)
-              axios({
-                method: 'get',
-                url: `${backend}/combined/${id}`
-              })
-              .then( resz => {
-                console.log("api combined response", resz)
-              })
-              .catch( err => {
-                console.log("pinged err", err);
-              })
+              // combined_styling();
+              getCombined()
 
 
-              let return_data = Uint8ClampedArray.from(res.data[0].image_data);
               // combinedImageData.data.set(combined_data);
               // console.log("combined", combined_data.length);
               // combined_context.putImageData(combinedImageData, 0, 0);
-              // clearInterval(interval);
+              clearInterval(interval);
             }
             else if (safety_counter > 1000){
               alert("No response received for other half of drawing. Timed out.");
