@@ -342,6 +342,7 @@ getCombined = () => {
         this.started = false;
 
         this.pointerdown = function (ev) {
+          console.log("DOWN")
           // if(event.pressure > 0){
           // if(lower_num <= ev._y && ev._y <= higher_num){
             context.beginPath();
@@ -359,6 +360,7 @@ getCombined = () => {
       };
 
         this.pointermove = function (ev) {
+          console.log("MOVING")
           if (tool.started) {
             context.lineTo(ev._x, ev._y);
             
@@ -370,6 +372,7 @@ getCombined = () => {
         };
 
         this.pointerup = function (ev) {
+          console.log("UP")
           if (tool.started) {
             // console.log("pointerup")
             tool.pointermove(ev);
