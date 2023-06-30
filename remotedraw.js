@@ -338,6 +338,10 @@ getCombined = () => {
         canvas.addEventListener('pointerdown',  ev_canvas, false);
         canvas.addEventListener('pointermove',   ev_canvas, false);
         window.addEventListener('pointerup',   ev_canvas, false);
+
+        canvas.addEventListener('touchstart',  handleStart, false);
+        canvas.addEventListener('touchmove',   handleMove, false);
+        window.addEventListener('touchend',    handleEnd, false);
         
       }
     
