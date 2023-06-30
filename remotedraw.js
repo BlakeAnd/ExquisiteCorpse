@@ -174,6 +174,12 @@ getCombined = () => {
   })
   .then( resz => {
     console.log("api combined response", resz)
+
+    combined_styling();
+    let combined_data = Uint8ClampedArray.from(resz.data);
+    combinedImageData.data.set(combined_data);
+    console.log("combined", combined_data.length);
+    combined_context.putImageData(combinedImageData, 0, 0);
   })
   .catch( err => {
     console.log("pinged err", err);
