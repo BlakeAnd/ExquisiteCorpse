@@ -11,7 +11,7 @@ let deployed_redirect = "https://drawexquisitecorpse.netlify.com/remotedraw"
 let dev_redirect = "file:///D:/Blake/Documents/Moved%20Docs/Git/ExquisiteCorpseProject/ExquisiteCorpse/remotedraw.html"
 
 //change dev/prod here
-let is_dev = false;
+let is_dev = true;
 
 let backend = deployed_api;
 let redirect = deployed_redirect;
