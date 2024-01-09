@@ -201,6 +201,8 @@ getCombined = () => {
         // window.location.assign(`https://drawexquisitecorpse.netlify.com/waiting`);
       let selection = localStorage.getItem("canvas_selection")
       if(api_response === "drawing added!"){
+        document.getElementById("timer").innerHTML = "Time remaining: ";
+
         let safety_counter = 0;
         ping();
 
@@ -215,9 +217,9 @@ getCombined = () => {
         seconds_since_start = 0;
         setInterval(function(){
           seconds_since_start += 1;
-          let timeLeft = (minutes_remaining * 60) - seconds_since_start;
+          let time_left = (minutes_remaining * 60) - seconds_since_start;
           
-          document.getElementById("time_left").innerHTML = timeLeft;
+          document.getElementById("time_left").innerHTML = time_left;
         }, 1000)
 
         let interval = setInterval(ping, 5000);
