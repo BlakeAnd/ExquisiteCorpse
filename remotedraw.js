@@ -203,7 +203,28 @@ getCombined = () => {
       if(api_response === "drawing added!"){
         let safety_counter = 0;
         ping();
+
+        
+
+        //should clear the interval after 20 minutes...
+        setTimeout(function(){ 
+          clearInterval(interval);
+        }, 1200000);
+
+        minutes_remaining = 15;
+        seconds_since_start = 0;
+        setInterval(function(){
+          seconds_since_start += 1;
+          document.getElementById("time_left").innerHTML = `${(minutes_remaining * 60) - seconds_since_start}`;
+        }, 1000)
+
         let interval = setInterval(ping, 5000);
+
+
+
+
+
+
         document.getElementById("submit_button").style.display = "none";
         document.getElementById("submitted_message").style.display = "inline";
 
