@@ -215,7 +215,9 @@ getCombined = () => {
         seconds_since_start = 0;
         setInterval(function(){
           seconds_since_start += 1;
-          document.getElementById("time_left").innerHTML = `${(minutes_remaining * 60) - seconds_since_start}`;
+          let timeLeft = (minutes_remaining * 60) - seconds_since_start;
+          
+          document.getElementById("time_left").innerHTML = timeLeft;
         }, 1000)
 
         let interval = setInterval(ping, 5000);
