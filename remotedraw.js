@@ -213,16 +213,16 @@ getCombined = () => {
           clearInterval(interval);
         }, 1200000);
 
-        minutes_remaining = 15;
-        seconds_since_start = 0;
-        setInterval(function(){
-          seconds_since_start += 1;
-          let time_left = (minutes_remaining * 60) - seconds_since_start;
+        // minutes_remaining = 15;
+        // seconds_since_start = 0;
+        // setInterval(function(){
+        //   seconds_since_start += 1;
+        //   let time_left = (minutes_remaining * 60) - seconds_since_start;
           
-          document.getElementById("time_left").innerHTML = time_left;
-        }, 1000)
+        //   document.getElementById("time_left").innerHTML = time_left;
+        // }, 1000)
 
-        let interval = setInterval(ping, 5000);
+        // let interval = setInterval(ping, 5000);
 
 
 
